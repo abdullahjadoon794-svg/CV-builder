@@ -1,0 +1,129 @@
+{
+  "contact_info": {
+    "name": "HASHIM KHAN",
+    "phone": "0563740251",
+    "location": "Villa No.4 street No.6\nAl Nasareya Sharjah",
+    "linkedin": "null",
+    "github": "null",
+    "website": "null"
+  },
+  "summary": "Seeking the challenging position in any dynamic Health care organization in\nUAE to get more exposure and where my education and skills as a Surgical\nTechnician in the practical filed have profound impact in the growth and\nproductivity of the organization and as well as my personal growth\nopportunities to enhance skill and knowledge to the next level.",
+  "work_experience": [
+    {
+      "role": "Operation Theatre Technician",
+      "company": "Kabul Specialty Medical Center",
+      "location": "Sharjah",
+      "start_date": "March 2024",
+      "end_date": "null",
+      "is_current": true,
+      "bullets": [
+        "Working as OT technician from last one year almost, during my duty I assist the\ndoctor for daily surgeries, due to located in industrial area mostly injured patients\ncoming every day, mostly my duties, Stitching, Patient wound dressing, home patient\nwound dressing, Bandage replacement and keep all instruments clean and sterilized"
+      ]
+    },
+    {
+      "role": "surgical technician + orthopedic plaster technician",
+      "company": "GILANI HOSPITAL COMPLEX",
+      "location": "Abbottabad, Pakistan",
+      "start_date": "null",
+      "end_date": "null",
+      "is_current": false,
+      "bullets": [
+        "During the job I was working as a Surgical OT Technician\nAssisttheDoctors withwell manners in operationtheater by handing them needed\ninstruments during surgery and supply of equipment's and supply of drugs to anesthetist",
+        "The preparation of operation theater includes preparation of equipment and the patient for\nsurgery.",
+        "Assist in the preparation of patient prior to surgery pre-operative shave, patient\npositioning",
+        "Responsible for monitoring the patient during the procedure as well as cleaning and\nsterilizing the operating theatre after the surgery has been completed.",
+        "After operations, transferring patient to the recovery room and ensure safe transfer of\npatient form operating room to ward or other unit.",
+        "He is responsible to ensure that all the equipment working properly.",
+        "Conducting regular maintenance as needed and troubleshooting any issues that arise.",
+        "He also ensures that all safety protocols are followed and the OT is clean and sanitary.",
+        "He is also responsible for stocking supplies",
+        "Reports malfunctioning equipment's."
+      ]
+    },
+    {
+      "role": "OT Technician",
+      "company": "DHQ Hospital Abbottabad",
+      "location": "Pakistan",
+      "start_date": "null",
+      "end_date": "null",
+      "is_current": false,
+      "bullets": [
+        "Working as OT Technician as interne six month I learn practical knowledgein\ndifferent departments of the hospital this is the best experience for my carrierasOT\nTechnician I work as interne in the big District Hospital."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Matric SSC",
+      "field": "null",
+      "institution": "B.I.S.E",
+      "location": "null",
+      "start_date": "2016",
+      "end_date": "null",
+      "gpa": "null",
+      "honors": []
+    },
+    {
+      "degree": "Intermediate F.SC",
+      "field": "null",
+      "institution": "Abbottabad",
+      "location": "null",
+      "start_date": "2018",
+      "end_date": "null",
+      "gpa": "null",
+      "honors": []
+    },
+    {
+      "degree": "Diploma Surgical Tech",
+      "field": "null",
+      "institution": "B.I.S.E\nAbbottabad\nFrontier Institute\nof Medical\nSciences",
+      "location": "null",
+      "start_date": "2021",
+      "end_date": "null",
+      "gpa": "null",
+      "honors": []
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Certified Registered Allied Health Care Professional",
+      "issuer": "null",
+      "date": "null"
+    },
+    {
+      "name": "DHA ID: 12793132 - Allied Health-Technician (Operation Theatre Technology)",
+      "issuer": "DHA (Dubai Health Authority)",
+      "date": "null"
+    },
+    {
+      "name": "MOHAP ID REF:302101-Allied Health-Technician (Operation Theatre Technology)",
+      "issuer": "MOHAP",
+      "date": "null"
+    }
+  ],
+  "skills": {
+    "clinical": [
+      "Stitching",
+      "Patient wound dressing",
+      "Bandage replacement",
+      "Closed Reduction",
+      "POP Cast",
+      "POP Back Slab",
+      "Hip Spica",
+      "Shoulder Spica",
+      "U-Slab Application",
+      "Long Leg Slab",
+      "Short Leg Slab",
+      "Above Elbow Slab",
+      "Below Elbow Slab"
+    ],
+    "technical": [
+      "Sterilization"
+    ],
+    "soft": [],
+    "tools": []
+  },
+  "projects": [],
+  "languages": [],
+  "awards": []
+}
