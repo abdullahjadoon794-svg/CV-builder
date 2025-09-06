@@ -1,0 +1,15 @@
+{% macro render_contact_info(contact_info) %}
+{% if contact_info %}
+<section class="sidebar-section contact-info">
+    <h3 class="sidebar-title">Contact</h3>
+    <ul class="contact-list">
+        {% if contact_info.phone and contact_info.phone != 'null' %}<li class="contact-item">{{ contact_info.phone }}</li>{% endif %}
+        {% if contact_info.email and contact_info.email != 'null' %}<li class="contact-item">{{ contact_info.email }}</li>{% endif %}
+        {% if contact_info.location and contact_info.location != 'null' %}<li class="contact-item">{{ contact_info.location }}</li>{% endif %}
+        {% if contact_info.website and contact_info.website != 'null' %}<li class="contact-item">{{ contact_info.website }}</li>{% endif %}
+        {% if contact_info.linkedin and contact_info.linkedin != 'null' %}<li class="contact-item">LinkedIn: {{ contact_info.linkedin }}</li>{% endif %}
+        {% if contact_info.github and contact_info.github != 'null' %}<li class="contact-item">GitHub: {{ contact_info.github }}</li>{% endif %}
+    </ul>
+</section>
+{% endif %}
+{% endmacro %}

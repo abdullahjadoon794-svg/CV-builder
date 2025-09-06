@@ -1,0 +1,12 @@
+{% macro render_awards(awards) %}
+{% if awards %}
+<section class="main-section awards-section">
+    <h2 class="main-section-title">Awards</h2>
+    <ul>
+        {% for award in awards %}
+        <li>{{ award }}</li>
+        {% endfor %}
+    </ul>
+</section>
+{% endif %}
+{% endmacro %}

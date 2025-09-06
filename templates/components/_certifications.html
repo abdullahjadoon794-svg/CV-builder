@@ -1,0 +1,13 @@
+{% macro render_certifications(certs) %}
+{% if certs %}
+<section class="main-section certifications-section">
+    <h2 class="main-section-title">Certifications</h2>
+    {% for cert in certs %}
+    <article class="certification-entry">
+        <h4>{{ cert.name }}</h4>
+        <p>{{ cert.issuer }} | {{ cert.date }}</p>
+    </article>
+    {% endfor %}
+</section>
+{% endif %}
+{% endmacro %}

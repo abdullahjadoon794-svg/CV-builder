@@ -1,0 +1,19 @@
+{% macro render_projects(projects) %}
+{% if projects %}
+<section class="main-section projects-section">
+    <h2 class="main-section-title">Projects</h2>
+    {% for project in projects %}
+    <article class="project-entry">
+        <h4>{{ project.title }}</h4>
+        {% if project.link %}<p class="project-link">{{ project.link }}</p>{% endif %}
+        <ul>
+            <li>{{ project.description }}</li>
+            {% if project.technologies %}
+            <li><strong>Technologies:</strong> {{ project.technologies | join(', ') }}</li>
+            {% endif %}
+        </ul>
+    </article>
+    {% endfor %}
+</section>
+{% endif %}
+{% endmacro %}

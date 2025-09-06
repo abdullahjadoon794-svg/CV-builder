@@ -1,0 +1,8 @@
+{% macro render_summary(summary) %}
+{% if summary %}
+<section class="main-section profile-section">
+    <h2 class="main-section-title">Profile</h2>
+    <p>{{ summary }}</p>
+</section>
+{% endif %}
+{% endmacro %}

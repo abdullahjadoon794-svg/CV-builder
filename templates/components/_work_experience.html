@@ -1,0 +1,28 @@
+{% macro render_work_experience(jobs) %}
+{% if jobs %}
+<section class="main-section work-experience-section">
+    <h2 class="main-section-title">Work Experience</h2>
+    
+    {% for job in jobs %}
+    <article class="job-entry">
+        <h4>{{ job.role }}</h4>
+        <p class="job-subtitle">
+            {{ job.company }}
+            {% if job.location and job.location != 'null' %} | {{ job.location }}{% endif %}
+        </p>
+        <p class="job-period">
+            {% if job.start_date and job.start_date != 'null' %}{{ job.start_date }}{% else %}N/A{% endif %} -
+            {% if job.is_current %}PRESENT{% else %}{% if job.end_date and job.end_date != 'null' %}{{ job.end_date }}{% else %}N/A{% endif %}{% endif %}
+        </p>
+        {% if job.bullets %}
+        <ul>
+            {% for bullet in job.bullets %}
+            <li>{{ bullet }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </article>
+    {% endfor %}
+</section>
+{% endif %}
+{% endmacro %}

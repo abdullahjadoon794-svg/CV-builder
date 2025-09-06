@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HASHIM KHAN</title>
+    <style>
+        :root {
+            --sidebar-bg: #e0effc;
+            --accent-color: #3b82c4;
+            --text-color: #333333;
+            --light-text-color: #555555;
+            --page-bg: #f4f4f4;
+            --container-bg: #ffffff;
+        }
+
+        @media print {
+            body {
+                background-color: var(--container-bg);
+            }
+            .resume-a4-page {
+                box-shadow: none;
+                margin: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--page-bg);
+            margin: 0;
+            padding: 20px 0;
+            color: var(--text-color);
+            font-size: 14px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .resume-a4-page {
+            display: flex;
+            width: 8.27in;
+            height: 11.69in;
+            margin: 20px auto;
+            background-color: var(--container-bg);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        /* --- Main Content (Left Column) --- */
+        .main-content {
+            width: 65%;
+            padding: 50px 40px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .resume-header .name {
+            font-size: 4.5em;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            line-height: 1;
+        }
+
+        .resume-header .title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin: 0 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        .profile-section p {
+            font-size: 1.05em;
+        }
+
+        .main-section {
+            margin-bottom: 40px;
+        }
+        .main-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .main-section-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin: 0 0 20px 0;
+            padding-top: 10px;
+            border-top: 2px solid var(--text-color);
+        }
+
+        .job-entry {
+            margin-bottom: 25px;
+        }
+        .job-entry:last-child {
+            margin-bottom: 0;
+        }
+        .job-title-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+        .job-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 0;
+        }
+        .job-period {
+            font-weight: bold;
+            font-size: 0.9em;
+            color: var(--light-text-color);
+        }
+        .job-company {
+            font-size: 1em;
+            font-style: italic;
+            color: var(--light-text-color);
+            margin: 0 0 10px 0;
+        }
+        .job-details p {
+            margin: 0 0 5px 0;
+        }
+
+        .awards-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .award-item {
+            margin-bottom: 10px;
+        }
+
+        /* --- Sidebar (Right Column) --- */
+        .sidebar {
+            width: 35%;
+            background-color: var(--sidebar-bg);
+            padding: 40px 30px;
+            box-sizing: border-box;
+        }
+        
+        .profile-image-wrapper {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 8px solid var(--container-bg);
+            object-fit: cover;
+            background-color: #ccc;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 40px;
+        }
+        .sidebar-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .sidebar-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin: 0 0 20px 0;
+            padding-top: 10px;
+            border-top: 2px solid var(--text-color);
+        }
+
+        .contact-list, .skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .contact-item {
+            margin-bottom: 10px;
+        }
+
+        .skills-category-title {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin: 20px 0 10px 0;
+        }
+        
+        .skill-item {
+            margin-bottom: 8px;
+        }
+
+        .education-entry {
+            margin-bottom: 20px;
+        }
+        .education-entry:last-child {
+            margin-bottom: 0;
+        }
+        .education-period {
+            font-weight: bold;
+            font-size: 1em;
+        }
+        .education-details p {
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="resume-a4-page">
+        <main class="main-content">
+            <header class="resume-header">
+                <h1 class="name">HASHIM KHAN</h1>
+                <h2 class="title">
+                    
+                        OPERATION THEATRE TECHNICIAN
+                    
+                </h2>
+            </header>
+            
+            
+            
+
+<section class="main-section profile-section">
+    <h2 class="main-section-title">Profile</h2>
+    <p>Seeking the challenging position in any dynamic Health care organization in
+UAE to get more exposure and where my education and skills as a Surgical
+Technician in the practical filed have profound impact in the growth and
+productivity of the organization and as well as my personal growth
+opportunities to enhance skill and knowledge to the next level.To play the positive and active role as allied health worker for upholding the
+society and the related individuals.To accepts the challenging position in organization and grows on the basis of
+my personal abilities and to provide effective and efficient services to the best
+of my knowledge to and organization and want to become successful and result
+oriented person.</p>
+</section>
+
+
+
+            
+            
+
+<section class="main-section work-experience-section">
+    <h2 class="main-section-title">Work Experience</h2>
+    
+    
+    <article class="job-entry">
+        <h4>Operation Theatre Technician</h4>
+        <p class="job-subtitle">Kabul Specialty Medical Center (Sharjah) | Sharjah</p>
+        <p class="job-period">March 2024 - PRESENT</p>
+        
+        <ul>
+            
+            <li>Working as OT technician from last one year almost, during my duty I assist the
+doctor for daily surgeries, due to located in industrial area mostly injured patients
+coming every day, mostly my duties, Stitching, Patient wound dressing, home patient
+wound dressing, Bandage replacement and keep all instruments clean and sterilized</li>
+            
+        </ul>
+        
+    </article>
+    
+    <article class="job-entry">
+        <h4>surgical technician + orthopedic plaster technician</h4>
+        <p class="job-subtitle">GILANI HOSPITAL COMPLEX | Abbottabad, Pakistan</p>
+        <p class="job-period">null - null</p>
+        
+        <ul>
+            
+            <li>Closed Reduction</li>
+            
+            <li>POP Cast</li>
+            
+            <li>POP Back Slab</li>
+            
+            <li>Hip Spica</li>
+            
+            <li>Shoulder Spica</li>
+            
+            <li>U-Slab Application (Humerus / Elbow fractures</li>
+            
+            <li>Long Leg Slab</li>
+            
+            <li>Short Leg Slab</li>
+            
+            <li>Above Elbow Slab</li>
+            
+            <li>Below Elbow Slab</li>
+            
+            <li>During the job I was working as a Surgical OT Technician</li>
+            
+            <li>AssisttheDoctors withwell manners in operationtheater by handing them needed
+instruments during surgery and supply of equipment's and supply of drugs to anesthetist</li>
+            
+            <li>The preparation of operation theater includes preparation of equipment and the patient for
+surgery.</li>
+            
+            <li>Assist in the preparation of patient prior to surgery pre-operative shave, patient
+positioning</li>
+            
+            <li>Responsible for monitoring the patient during the procedure as well as cleaning and
+sterilizing the operating theatre after the surgery has been completed.</li>
+            
+            <li>After operations, transferring patient to the recovery room and ensure safe transfer of
+patient form operating room to ward or other unit.</li>
+            
+            <li>He is responsible to ensure that all the equipment working properly.</li>
+            
+            <li>Conducting regular maintenance as needed and troubleshooting any issues that arise.</li>
+            
+            <li>He also ensures that all safety protocols are followed and the OT is clean and sanitary.</li>
+            
+            <li>He is also responsible for stocking supplies</li>
+            
+            <li>Reports malfunctioning equipment's.</li>
+            
+        </ul>
+        
+    </article>
+    
+    <article class="job-entry">
+        <h4>OT Technician</h4>
+        <p class="job-subtitle">DHQ Hospital Abbottabad | Abbottabad</p>
+        <p class="job-period">null - null</p>
+        
+        <ul>
+            
+            <li>Working as OT Technician as interne six month I learn practical knowledgein
+different departments of the hospital this is the best experience for my carrierasOT
+Technician I work as interne in the big District Hospital.</li>
+            
+        </ul>
+        
+    </article>
+    
+</section>
+
+
+
+            
+            
+
+
+
+            
+            
+
+
+
+        </main>
+        <aside class="sidebar">
+            <div class="profile-image-wrapper">
+                <div class="profile-image"></div>
+            </div>
+
+            
+            
+
+<section class="sidebar-section contact-info">
+    <h3 class="sidebar-title">Contact</h3>
+    <ul class="contact-list">
+        <li class="contact-item">0563740251</li>
+        
+        <li class="contact-item">Villa No.4 street No.6
+Al Nasareya Sharjah</li>
+        <li class="contact-item">null</li>
+        <li class="contact-item">LinkedIn: null</li>
+        <li class="contact-item">GitHub: null</li>
+    </ul>
+</section>
+
+
+
+            
+            
+
+<section class="sidebar-section skills-section">
+    <h3 class="sidebar-title">Skills</h3>
+    <ul class="skills-list">
+        <li class="skill-item">• Sterilization</li>
+        
+        
+        <li class="skill-item">• Stitching</li><li class="skill-item">• Patient wound dressing</li><li class="skill-item">• Bandage replacement</li><li class="skill-item">• Closed Reduction</li><li class="skill-item">• POP Cast</li><li class="skill-item">• POP Back Slab</li><li class="skill-item">• Hip Spica</li><li class="skill-item">• Shoulder Spica</li><li class="skill-item">• U-Slab Application</li><li class="skill-item">• Long Leg Slab</li><li class="skill-item">• Short Leg Slab</li><li class="skill-item">• Above Elbow Slab</li><li class="skill-item">• Below Elbow Slab</li>
+    </ul>
+</section>
+
+
+
+            
+            
+
+<section class="main-section education-section">
+    <h2 class="main-section-title">Education</h2>
+    
+    
+    <article class="education-entry">
+        <div class="education-details">
+            <h4>Matric SSC</h4>
+            <p>null | B.I.S.E</p>
+            <p>GPA: null</p>
+            
+        </div>
+        <p class="education-period">2016 - null</p>
+    </article>
+    
+    <article class="education-entry">
+        <div class="education-details">
+            <h4>Intermediate F.SC</h4>
+            <p>null | B.I.S.E</p>
+            <p>GPA: null</p>
+            
+        </div>
+        <p class="education-period">2018 - null</p>
+    </article>
+    
+    <article class="education-entry">
+        <div class="education-details">
+            <h4>Diploma Surgical Tech</h4>
+            <p>null | Frontier Institute
+of
+Medical
+Sciences</p>
+            <p>GPA: null</p>
+            
+            <ul>
+                
+                <li>Certified Registered Allied Health Care Professional</li>
+                
+            </ul>
+            
+        </div>
+        <p class="education-period">2021 - null</p>
+    </article>
+    
+</section>
+
+
+
+        </aside>
+    </div>
+</body>
+</html>

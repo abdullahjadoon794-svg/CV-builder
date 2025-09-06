@@ -1,0 +1,12 @@
+{% macro render_languages(languages) %}
+{% if languages %}
+<section class="sidebar-section languages-section">
+    <h3 class="sidebar-title">Languages</h3>
+    <ul class="languages-list">
+        {% for lang in languages %}
+        <li class="language-item">• {{ lang }}</li>
+        {% endfor %}
+    </ul>
+</section>
+{% endif %}
+{% endmacro %}

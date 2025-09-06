@@ -1,0 +1,13 @@
+{% macro render_skills(skills) %}
+{% if skills %}
+<section class="sidebar-section skills-section">
+    <h3 class="sidebar-title">Skills</h3>
+    <ul class="skills-list">
+        {% for skill in skills.technical %}<li class="skill-item">• {{ skill }}</li>{% endfor %}
+        {% for skill in skills.soft %}<li class="skill-item">• {{ skill }}</li>{% endfor %}
+        {% for skill in skills.tools %}<li class="skill-item">• {{ skill }}</li>{% endfor %}
+        {% for skill in skills.clinical %}<li class="skill-item">• {{ skill }}</li>{% endfor %}
+    </ul>
+</section>
+{% endif %}
+{% endmacro %}

@@ -1,0 +1,28 @@
+{% macro render_education(educations) %}
+{% if educations %}
+<section class="main-section education-section">
+    <h2 class="main-section-title">Education</h2>
+    
+    {% for edu in educations %}
+    <article class="education-entry">
+        <div class="education-details">
+            <h4>{{ edu.degree }}</h4>
+            <p>{% if edu.field and edu.field != 'null' %}{{ edu.field }} | {% endif %}{{ edu.institution }}</p>
+            {% if edu.gpa and edu.gpa != 'null' %}<p>GPA: {{ edu.gpa }}</p>{% endif %}
+            {% if edu.honors %}
+            <ul>
+                {% for honor in edu.honors %}
+                <li>{{ honor }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <p class="education-period">
+            {% if edu.start_date and edu.start_date != 'null' %}{{ edu.start_date }}{% else %}N/A{% endif %} -
+            {% if edu.end_date and edu.end_date != 'null' %}{{ edu.end_date }}{% else %}Present{% endif %}
+        </p>
+    </article>
+    {% endfor %}
+</section>
+{% endif %}
+{% endmacro %}
