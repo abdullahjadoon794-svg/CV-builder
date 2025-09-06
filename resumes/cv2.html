@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adeline Palmerston Resume</title>
+    <style>
+        :root {
+            --primary-color: #3a4d6d; /* Dark Slate Blue */
+            --secondary-color: #ffffff;
+            --text-color-dark: #333333;
+            --text-color-light: #f0f0f0;
+            --page-bg-color: #e8e8e8;
+            --skill-tag-bg: #e1e6ec;
+            --skill-tag-text: #3a4d6d;
+        }
+
+        @media print {
+            body {
+                background-color: var(--secondary-color);
+            }
+            .resume-a4-page {
+                box-shadow: none;
+                margin: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--page-bg-color);
+            margin: 0;
+            padding: 20px 0;
+            font-size: 14px;
+            color: var(--text-color-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .resume-a4-page {
+            display: flex;
+            width: 8.27in;
+            height: 11.69in;
+            margin: 20px auto;
+            background-color: var(--secondary-color);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        /* --- Sidebar --- */
+        .sidebar {
+            background-color: var(--primary-color);
+            color: var(--text-color-light);
+            width: 38%;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+
+        .profile-image-wrapper {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 6px solid #5c6e8d;
+            object-fit: cover;
+            background-color: #ccc;
+        }
+
+        .sidebar-section {
+            margin-bottom: 30px;
+        }
+        .sidebar-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .sidebar-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #5c6e8d;
+        }
+
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .contact-list li {
+            margin-bottom: 8px;
+        }
+        
+        .education-entry, .certification-entry {
+            margin-bottom: 20px;
+        }
+        .education-entry:last-child {
+            margin-bottom: 0;
+        }
+        .education-entry .degree, .certification-entry .cert-title {
+            font-weight: bold;
+            font-size: 1.05em;
+        }
+        .education-entry .university-dates, .certification-entry .cert-details {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .skills-list, .languages-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .skills-list li, .languages-list li {
+            background-color: var(--skill-tag-bg);
+            color: var(--skill-tag-text);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        /* --- Main Content --- */
+        .main-content {
+            width: 62%;
+            padding: 50px 40px;
+            box-sizing: border-box;
+        }
+        .main-header {
+            margin-bottom: 40px;
+        }
+        .main-header .name {
+            font-size: 3.5em;
+            font-weight: 300;
+            letter-spacing: 4px;
+            color: var(--primary-color);
+            margin: 0;
+            line-height: 1;
+        }
+        .main-header .name-last {
+            font-weight: 700;
+        }
+        .main-header .title {
+            font-size: 1.2em;
+            color: var(--primary-color);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+
+        .main-section {
+            margin-bottom: 35px;
+        }
+        .main-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .main-title {
+            font-size: 1.5em;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin: 0 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .job-entry {
+            margin-bottom: 25px;
+        }
+        .job-entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .job-title-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+        .job-title-wrapper .job-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 0;
+        }
+        .job-title-wrapper .job-dates {
+            font-size: 0.9em;
+            font-style: italic;
+            color: #666;
+            white-space: nowrap;
+        }
+        .job-company {
+            font-size: 1.05em;
+            font-weight: bold;
+            margin: 0 0 8px 0;
+            color: #555;
+        }
+        .job-description, .about-me-text {
+            margin: 0;
+        }
+        
+        .reference-entry {
+            margin-bottom: 15px;
+        }
+        .reference-entry:last-child {
+            margin-bottom: 0;
+        }
+        .reference-entry p {
+            margin: 0;
+        }
+        .reference-name {
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="resume-a4-page">
+        <aside class="sidebar">
+            <div class="profile-image-wrapper">
+                <div class="profile-image"></div>
+            </div>
+
+            <section class="sidebar-section contact-info">
+                <ul class="contact-list">
+                    <li>+123-456-7890</li>
+                    <li>hello@reallygreatsite.com</li>
+                    <li>www.reallygreatsite.com</li>
+                    <li>123 Anywhere St., Any City</li>
+                </ul>
+            </section>
+            
+            <section class="sidebar-section education-section">
+                <h3 class="sidebar-title">Education</h3>
+                <div class="education-entry">
+                    <p class="degree">Master of Design</p>
+                    <p class="university-dates">Really Great University | 2016-2020</p>
+                </div>
+                <div class="education-entry">
+                    <p class="degree">Bachelor of Design</p>
+                    <p class="university-dates">Really Great University | 2012-2016</p>
+                </div>
+            </section>
+
+            <section class="sidebar-section certification-section">
+                <h3 class="sidebar-title">Certifications</h3>
+                <div class="certification-entry">
+                    <p class="cert-title">• Certified Graphic Designer.</p>
+                    <p class="cert-details">User Experience (UX) Design Certificate.</p>
+                </div>
+            </section>
+
+            <section class="sidebar-section skills-section">
+                <h3 class="sidebar-title">Skills</h3>
+                <ul class="skills-list">
+                    <li>Organized</li>
+                    <li>Creativity</li>
+                    <li>Teamwork</li>
+                    <li>Meeting deadlines</li>
+                    <li>Critical thinking</li>
+                </ul>
+            </section>
+
+            <section class="sidebar-section languages-section">
+                <h3 class="sidebar-title">Language</h3>
+                <ul class="languages-list">
+                    <li>French</li>
+                    <li>Spanish</li>
+                    <li>English</li>
+                </ul>
+            </section>
+
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h1 class="name">ADELINE <span class="name-last">PALMERSTON</span></h1>
+                <p class="title">GRAPHIC DESIGNER</p>
+            </header>
+
+            <section class="main-section about-me-section">
+                <h2 class="main-title">About me</h2>
+                <p class="about-me-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+            </section>
+
+            <section class="main-section experience-section">
+                <h2 class="main-title">Experience</h2>
+                <article class="job-entry">
+                    <div class="job-title-wrapper">
+                        <h3 class="job-title">Graphic Designer</h3>
+                        <span class="job-dates">Jan 2021 - Jan 2022</span>
+                    </div>
+                    <p class="job-company">Aldenaire & Partners</p>
+                    <p class="job-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                </article>
+
+                <article class="job-entry">
+                    <div class="job-title-wrapper">
+                        <h3 class="job-title">Graphic Designer</h3>
+                        <span class="job-dates">Jan 2020 - Dec 2020</span>
+                    </div>
+                    <p class="job-company">Warner & Spencer</p>
+                    <p class="job-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                </article>
+
+                <article class="job-entry">
+                    <div class="job-title-wrapper">
+                        <h3 class="job-title">Graphic Designer</h3>
+                        <span class="job-dates">Jan 2017 - Dec 2029</span>
+                    </div>
+                    <p class="job-company">Ingoude Company</p>
+                    <p class="job-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                </article>
+            </section>
+
+            <section class="main-section reference-section">
+                <h2 class="main-title">Reference</h2>
+                <div class="reference-entry">
+                    <p class="reference-name">Alfredo Torres | Director</p>
+                    <p>Aldenaire & Partners</p>
+                    <p>+123-456-7890</p>
+                </div>
+                <div class="reference-entry">
+                    <p class="reference-name">Harumi Kobayashi | CEO</p>
+                    <p>Ingoude Company</p>
+                    <p>+123-456-7890</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>

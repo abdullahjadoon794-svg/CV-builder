@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ contact_info.name | default('Resume') }}</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50; /* Dark Slate Blue */
+            --secondary-color: #ffffff;
+            --text-color-dark: #333333;
+            --text-color-light: #fdfdfd;
+            --page-bg-color: #e8e8e8;
+        }
+
+        @media print {
+            body {
+                background-color: var(--secondary-color);
+            }
+            .resume-a4-page {
+                box-shadow: none;
+                margin: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--page-bg-color);
+            margin: 0;
+            padding: 20px 0;
+            font-size: 14px;
+            color: var(--text-color-dark);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .resume-a4-page {
+            display: flex;
+            width: 8.27in;
+            height: 11.69in;
+            margin: 20px auto;
+            background-color: var(--secondary-color);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        /* --- Sidebar --- */
+        .sidebar {
+            background-color: var(--primary-color);
+            color: var(--text-color-light);
+            width: 33%;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        .profile-image-wrapper {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-image {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 6px solid var(--secondary-color);
+            object-fit: cover;
+            background-color: #ccc;
+        }
+
+        .sidebar-section {
+            margin-bottom: 35px;
+        }
+
+        .sidebar-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid var(--text-color-light);
+        }
+
+        .contact-list,
+        .skills-list,
+        .languages-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .contact-item,
+        .skill-item,
+        .language-item {
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        /* --- Main Content --- */
+        .main-content {
+            width: 67%;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+
+        .resume-header {
+            margin-bottom: 40px;
+        }
+
+        .resume-header .name {
+            font-size: 2.8em;
+            margin: 0 0 5px 0;
+            color: var(--primary-color);
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        .resume-header .title {
+            font-size: 1.5em;
+            margin: 0;
+            color: var(--primary-color);
+            font-weight: 300;
+        }
+
+        .main-section {
+            margin-bottom: 35px;
+        }
+        .main-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .main-section-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin: 0 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .profile-section p {
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .job-entry, .education-entry, .reference-entry, .project-entry, .certification-entry {
+            margin-bottom: 25px;
+        }
+
+        .job-entry:last-child, .education-entry:last-child, .project-entry:last-child, .certification-entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .job-entry h4, .education-entry h4, .project-entry h4, .certification-entry h4 {
+            margin: 0 0 2px 0;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .job-entry .job-subtitle {
+            margin: 0 0 8px 0;
+            font-style: italic;
+            color: #555555;
+        }
+        
+        .job-entry .job-period {
+            font-weight: bold;
+            color: #777777;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .job-entry ul, .project-entry ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .job-entry ul li, .project-entry ul li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        
+        .education-entry {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .education-details {
+            flex-grow: 1;
+        }
+        .education-details p {
+            margin: 0;
+            color: #555555;
+            line-height: 1.5;
+        }
+        
+        .education-period {
+            font-weight: bold;
+            color: #777777;
+            font-size: 0.9em;
+            text-align: right;
+            white-space: nowrap;
+            padding-left: 20px;
+            line-height: 1.5;
+        }
+
+        .reference-entry p {
+            margin: 0 0 5px 0;
+            line-height: 1.5;
+        }
+        .reference-entry .reference-name {
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="resume-a4-page">
+        
+        <aside class="sidebar">
+            <div class="profile-image-wrapper">
+                <div class="profile-image"></div>
+            </div>
+
+            {% if contact_info %}
+            <section class="sidebar-section contact-info">
+                <h3 class="sidebar-title">Contact</h3>
+                <ul class="contact-list">
+                    {% if contact_info.phone %}<li class="contact-item">{{ contact_info.phone }}</li>{% endif %}
+                    {% if contact_info.email %}<li class="contact-item">{{ contact_info.email }}</li>{% endif %}
+                    {% if contact_info.location %}<li class="contact-item">{{ contact_info.location }}</li>{% endif %}
+                    {% if contact_info.website %}<li class="contact-item">{{ contact_info.website }}</li>{% endif %}
+                    {% if contact_info.linkedin %}<li class="contact-item">LinkedIn: {{ contact_info.linkedin }}</li>{% endif %}
+                    {% if contact_info.github %}<li class="contact-item">GitHub: {{ contact_info.github }}</li>{% endif %}
+                </ul>
+            </section>
+            {% endif %}
+
+            {% if skills %}
+            <section class="sidebar-section skills-section">
+                <h3 class="sidebar-title">Skills</h3>
+                <ul class="skills-list">
+                    {% for skill in skills.technical %}<li class="skill-item">• {{ skill }}</li>{% endfor %}
+                    {% for skill in skills.soft %}<li class="skill-item">• {{ skill }}</li>{% endfor %}
+                    {% for skill in skills.tools %}<li class="skill-item">• {{ skill }}</li>{% endfor %}
+                    {% for skill in skills.clinical %}<li class="skill-item">• {{ skill }}</li>{% endfor %}
+                </ul>
+            </section>
+            {% endif %}
+            
+            {% if languages %}
+            <section class="sidebar-section languages-section">
+                <h3 class="sidebar-title">Languages</h3>
+                <ul class="languages-list">
+                    {% for lang in languages %}
+                    <li class="language-item">• {{ lang }}</li>
+                    {% endfor %}
+                </ul>
+            </section>
+            {% endif %}
+        </aside>
+
+        <main class="main-content">
+            <header class="resume-header">
+                <h1 class="name">{{ contact_info.name | upper }}</h1>
+                <h2 class="title">{{ work_experience[0].role | default('Professional Title') | upper }}</h2>
+            </header>
+
+            {% if summary %}
+            <section class="main-section profile-section">
+                <h2 class="main-section-title">Profile</h2>
+                <p>{{ summary }}</p>
+            </section>
+            {% endif %}
+
+            {% if work_experience %}
+            <section class="main-section work-experience-section">
+                <h2 class="main-section-title">Work Experience</h2>
+                
+                {% for job in work_experience %}
+                <article class="job-entry">
+                    <h4>{{ job.role }}</h4>
+                    <p class="job-subtitle">{{ job.company }}{% if job.location %} | {{ job.location }}{% endif %}</p>
+                    <p class="job-period">{{ job.start_date }} - {% if job.is_current %}PRESENT{% else %}{{ job.end_date }}{% endif %}</p>
+                    {% if job.bullets %}
+                    <ul>
+                        {% for bullet in job.bullets %}
+                        <li>{{ bullet }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </article>
+                {% endfor %}
+            </section>
+            {% endif %}
+
+            {% if projects %}
+            <section class="main-section projects-section">
+                <h2 class="main-section-title">Projects</h2>
+                {% for project in projects %}
+                <article class="project-entry">
+                    <h4>{{ project.title }}</h4>
+                    {% if project.link %}<p class="project-link">{{ project.link }}</p>{% endif %}
+                    <ul>
+                        <li>{{ project.description }}</li>
+                        {% if project.technologies %}
+                        <li><strong>Technologies:</strong> {{ project.technologies | join(', ') }}</li>
+                        {% endif %}
+                    </ul>
+                </article>
+                {% endfor %}
+            </section>
+            {% endif %}
+
+            {% if education %}
+            <section class="main-section education-section">
+                <h2 class="main-section-title">Education</h2>
+                
+                {% for edu in education %}
+                <article class="education-entry">
+                    <div class="education-details">
+                        <h4>{{ edu.degree }}</h4>
+                        <p>{% if edu.field %}{{ edu.field }} | {% endif %}{{ edu.institution }}</p>
+                        {% if edu.gpa %}<p>GPA: {{ edu.gpa }}</p>{% endif %}
+                        {% if edu.honors %}
+                        <ul>
+                            {% for honor in edu.honors %}
+                            <li>{{ honor }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
+                    <p class="education-period">{{ edu.start_date }} - {{ edu.end_date }}</p>
+                </article>
+                {% endfor %}
+            </section>
+            {% endif %}
+
+            {% if certifications %}
+            <section class="main-section certifications-section">
+                <h2 class="main-section-title">Certifications</h2>
+                {% for cert in certifications %}
+                <article class="certification-entry">
+                    <h4>{{ cert.name }}</h4>
+                    <p>{{ cert.issuer }} | {{ cert.date }}</p>
+                </article>
+                {% endfor %}
+            </section>
+            {% endif %}
+
+            {% if awards %}
+            <section class="main-section awards-section">
+                <h2 class="main-section-title">Awards</h2>
+                <ul>
+                    {% for award in awards %}
+                    <li>{{ award }}</li>
+                    {% endfor %}
+                </ul>
+            </section>
+            {% endif %}
+
+        </main>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Richard Sanchez Resume</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50; /* Dark Slate Blue */
+            --secondary-color: #ffffff;
+            --text-color-dark: #333333;
+            --text-color-light: #fdfdfd;
+            --page-bg-color: #e8e8e8;
+        }
+
+        @media print {
+            body {
+                background-color: var(--secondary-color);
+            }
+            .resume-a4-page {
+                box-shadow: none;
+                margin: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--page-bg-color);
+            margin: 0;
+            padding: 20px 0;
+            font-size: 14px;
+            color: var(--text-color-dark);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .resume-a4-page {
+            display: flex;
+            width: 8.27in;
+            height: 11.69in;
+            margin: 20px auto;
+            background-color: var(--secondary-color);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        /* --- Sidebar --- */
+        .sidebar {
+            background-color: var(--primary-color);
+            color: var(--text-color-light);
+            width: 33%;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        .profile-image-wrapper {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-image {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 6px solid var(--secondary-color);
+            object-fit: cover;
+            background-color: #ccc;
+        }
+
+        .sidebar-section {
+            margin-bottom: 35px;
+        }
+
+        .sidebar-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid var(--text-color-light);
+        }
+
+        .contact-list,
+        .skills-list,
+        .languages-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .contact-list li,
+        .skills-list li,
+        .languages-list li {
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .skills-list li {
+            position: relative;
+        }
+
+        /* --- Main Content --- */
+        .main-content {
+            width: 67%;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+
+        .resume-header {
+            margin-bottom: 40px;
+        }
+
+        .resume-header .name {
+            font-size: 2.8em;
+            margin: 0 0 5px 0;
+            color: var(--primary-color);
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        .resume-header .title {
+            font-size: 1.5em;
+            margin: 0;
+            color: var(--primary-color);
+            font-weight: 300;
+        }
+
+        .main-section {
+            margin-bottom: 35px;
+        }
+        .main-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .main-section-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin: 0 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .profile-section p {
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .job-entry, .education-entry, .reference-entry {
+            margin-bottom: 25px;
+        }
+
+        .job-entry:last-child, .education-entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .job-entry h4, .education-entry h4 {
+            margin: 0 0 2px 0;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .job-entry .job-subtitle {
+            margin: 0 0 8px 0;
+            font-style: italic;
+            color: #555555;
+        }
+        
+        .job-entry .job-period {
+            font-weight: bold;
+            color: #777777;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .job-entry ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .job-entry ul li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        
+        .education-entry {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .education-details {
+            flex-grow: 1;
+        }
+        .education-details p {
+            margin: 0;
+            color: #555555;
+            line-height: 1.5;
+        }
+        
+        .education-period {
+            font-weight: bold;
+            color: #777777;
+            font-size: 0.9em;
+            text-align: right;
+            white-space: nowrap;
+            padding-left: 20px;
+            line-height: 1.5;
+        }
+
+        .reference-entry p {
+            margin: 0 0 5px 0;
+            line-height: 1.5;
+        }
+        .reference-entry .reference-name {
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="resume-a4-page">
+        
+        <aside class="sidebar">
+            <div class="profile-image-wrapper">
+                <div class="profile-image"></div>
+            </div>
+
+            <section class="sidebar-section contact-info">
+                <h3 class="sidebar-title">Contact</h3>
+                <ul class="contact-list">
+                    <li>+123-456-7890</li>
+                    <li>hello@reallygreatsite.com</li>
+                    <li>123 Anywhere St., Any City</li>
+                    <li>www.reallygreatsite.com</li>
+                </ul>
+            </section>
+
+            <section class="sidebar-section skills-section">
+                <h3 class="sidebar-title">Skills</h3>
+                <ul class="skills-list">
+                    <li>• Project Management</li>
+                    <li>• Public Relations</li>
+                    <li>• Teamwork</li>
+                    <li>• Time Management</li>
+                    <li>• Leadership</li>
+                    <li>• Effective Communication</li>
+                    <li>• Critical Thinking</li>
+                    <li>• Digital Marketing</li>
+                </ul>
+            </section>
+
+            <section class="sidebar-section languages-section">
+                <h3 class="sidebar-title">Languages</h3>
+                <ul class="languages-list">
+                    <li>• English (Fluent)</li>
+                    <li>• French (Fluent)</li>
+                    <li>• German (Basic)</li>
+                    <li>• Spanish (Intermediate)</li>
+                </ul>
+            </section>
+        </aside>
+
+        <main class="main-content">
+            <header class="resume-header">
+                <h1 class="name">RICHARD SANCHEZ</h1>
+                <h2 class="title">MARKETING MANAGER</h2>
+            </header>
+
+            <section class="main-section profile-section">
+                <h2 class="main-section-title">Profile</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation.</p>
+            </section>
+
+            <section class="main-section work-experience-section">
+                <h2 class="main-section-title">Work Experience</h2>
+                
+                <article class="job-entry">
+                    <h4>Marketing Manager & Specialist</h4>
+                    <p class="job-subtitle">Borcelle Studio</p>
+                    <p class="job-period">2030-PRESENT</p>
+                    <ul>
+                        <li>Develop and execute comprehensive marketing strategies and campaigns that align with the company's goals and objectives.</li>
+                        <li>Lead, mentor, and manage a high-performing marketing team, fostering a collaborative and results-driven work environment.</li>
+                        <li>Monitor brand consistency across marketing channels and materials.</li>
+                    </ul>
+                </article>
+
+                <article class="job-entry">
+                    <h4>Marketing Manager & Specialist</h4>
+                    <p class="job-subtitle">Fauget Studio</p>
+                    <p class="job-period">2025-2029</p>
+                    <ul>
+                        <li>Create and manage the marketing budget, ensuring efficient allocation of resources and optimizing ROI.</li>
+                        <li>Oversee market research to identify emerging trends, customer needs, and competitor strategies.</li>
+                    </ul>
+                </article>
+
+                <article class="job-entry">
+                    <h4>Marketing Manager & Specialist</h4>
+                    <p class="job-subtitle">Studio Shodwe</p>
+                    <p class="job-period">2024-2025</p>
+                    <ul>
+                        <li>Develop and maintain strong relationships with partners, agencies, and vendors to support marketing initiatives.</li>
+                        <li>Monitor and maintain brand consistency across all marketing channels and materials.</li>
+                    </ul>
+                </article>
+            </section>
+
+            <section class="main-section education-section">
+                <h2 class="main-section-title">Education</h2>
+                
+                <article class="education-entry">
+                    <div class="education-details">
+                        <h4>Master of Business Management</h4>
+                        <p>School of business | Wardiere University</p>
+                        <p>GPA: 3.8/4.0</p>
+                    </div>
+                    <p class="education-period">2029-2031</p>
+                </article>
+
+                <article class="education-entry">
+                    <div class="education-details">
+                        <h4>Bachelor of Business Management</h4>
+                        <p>School of business Wardiere University</p>
+                        <p>GPA: 3.8/4.0</p>
+                    </div>
+                    <p class="education-period">2025-2029</p>
+                </article>
+            </section>
+
+            <section class="main-section reference-section">
+                <h2 class="main-section-title">Reference</h2>
+                <div class="reference-entry">
+                    <p class="reference-name">Estelle Darcy</p>
+                    <p>Wardiere Inc. / CTO</p>
+                    <p>Phone: 123-456-7890</p>
+                    <p>Email: hello@reallygreatsite.com</p>
+                </div>
+            </section>
+        </main>
+
+    </div>
+
+</body>
+</html>

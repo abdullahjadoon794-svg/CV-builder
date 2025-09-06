@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ contact_info.name | default('Resume') }}</title>
+    <style>
+        :root {
+            --sidebar-bg: #e0effc;
+            --accent-color: #3b82c4;
+            --text-color: #333333;
+            --light-text-color: #555555;
+            --page-bg: #f4f4f4;
+            --container-bg: #ffffff;
+        }
+
+        @media print {
+            body {
+                background-color: var(--container-bg);
+            }
+            .resume-a4-page {
+                box-shadow: none;
+                margin: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--page-bg);
+            margin: 0;
+            padding: 20px 0;
+            color: var(--text-color);
+            font-size: 14px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .resume-a4-page {
+            display: flex;
+            width: 8.27in;
+            height: 11.69in;
+            margin: 20px auto;
+            background-color: var(--container-bg);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        /* --- Main Content (Left Column) --- */
+        .main-content {
+            width: 65%;
+            padding: 50px 40px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .resume-header .name {
+            font-size: 4.5em;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            line-height: 1;
+        }
+
+        .resume-header .title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin: 0 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        .profile-section p {
+            font-size: 1.05em;
+        }
+
+        .main-section {
+            margin-bottom: 40px;
+        }
+        .main-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .main-section-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin: 0 0 20px 0;
+            padding-top: 10px;
+            border-top: 2px solid var(--text-color);
+        }
+
+        .job-entry {
+            margin-bottom: 25px;
+        }
+        .job-entry:last-child {
+            margin-bottom: 0;
+        }
+        .job-title-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+        .job-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 0;
+        }
+        .job-period {
+            font-weight: bold;
+            font-size: 0.9em;
+            color: var(--light-text-color);
+        }
+        .job-company {
+            font-size: 1em;
+            font-style: italic;
+            color: var(--light-text-color);
+            margin: 0 0 10px 0;
+        }
+        .job-details p {
+            margin: 0 0 5px 0;
+        }
+
+        .awards-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .award-item {
+            margin-bottom: 10px;
+        }
+
+        /* --- Sidebar (Right Column) --- */
+        .sidebar {
+            width: 35%;
+            background-color: var(--sidebar-bg);
+            padding: 40px 30px;
+            box-sizing: border-box;
+        }
+        
+        .profile-image-wrapper {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 8px solid var(--container-bg);
+            object-fit: cover;
+            background-color: #ccc;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 40px;
+        }
+        .sidebar-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .sidebar-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin: 0 0 20px 0;
+            padding-top: 10px;
+            border-top: 2px solid var(--text-color);
+        }
+
+        .contact-list, .skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .contact-item {
+            margin-bottom: 10px;
+        }
+
+        .skills-category-title {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin: 20px 0 10px 0;
+        }
+        
+        .skill-item {
+            margin-bottom: 8px;
+        }
+
+        .education-entry {
+            margin-bottom: 20px;
+        }
+        .education-entry:last-child {
+            margin-bottom: 0;
+        }
+        .education-period {
+            font-weight: bold;
+            font-size: 1em;
+        }
+        .education-details p {
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="resume-a4-page">
+        <main class="main-content">
+            <header class="resume-header">
+                <h1 class="name">{{ contact_info.name | upper }}</h1>
+                <h2 class="title">
+                    {% if work_experience %}
+                        {{ work_experience[0].role | upper }}
+                    {% else %}
+                        PROFESSIONAL TITLE
+                    {% endif %}
+                </h2>
+            </header>
+            
+            {% if summary %}
+            <section class="main-section profile-section">
+                <p>{{ summary }}</p>
+            </section>
+            {% endif %}
+
+            {% if work_experience %}
+            <section class="main-section work-experience-section">
+                <h2 class="main-section-title">EXPERIENCE</h2>
+                {% for job in work_experience %}
+                <article class="job-entry">
+                    <div class="job-title-wrapper">
+                        <h3 class="job-title">{{ job.role | upper }}</h3>
+                        <span class="job-period">{{ job.start_date }} - {% if job.is_current %}Present{% else %}{{ job.end_date }}{% endif %}</span>
+                    </div>
+                    <p class="job-company">{{ job.company }}</p>
+                    {% if job.bullets %}
+                    <div class="job-details">
+                        {% for bullet in job.bullets %}
+                        <p>{{ bullet }}</p>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </article>
+                {% endfor %}
+            </section>
+            {% endif %}
+
+            {% if awards %}
+            <section class="main-section awards-section">
+                <h2 class="main-section-title">AWARD</h2>
+                <ul class="awards-list">
+                    {% for award in awards %}
+                    <li class="award-item">• {{ award }}</li>
+                    {% endfor %}
+                </ul>
+            </section>
+            {% endif %}
+
+            {% if projects %}
+            <section class="main-section projects-section">
+                <h2 class="main-section-title">PROJECTS</h2>
+                {% for project in projects %}
+                <article class="job-entry">
+                    <div class="job-title-wrapper">
+                        <h3 class="job-title">{{ project.title }}</h3>
+                    </div>
+                    {% if project.link %}<p class="job-company">{{ project.link }}</p>{% endif %}
+                    <div class="job-details">
+                        <p>{{ project.description }}</p>
+                        {% if project.technologies %}<p><strong>Technologies:</strong> {{ project.technologies | join(', ') }}</p>{% endif %}
+                    </div>
+                </article>
+                {% endfor %}
+            </section>
+            {% endif %}
+
+        </main>
+        <aside class="sidebar">
+            <div class="profile-image-wrapper">
+                <div class="profile-image"></div>
+            </div>
+
+            {% if contact_info %}
+            <section class="sidebar-section contact-info">
+                <h3 class="sidebar-title">CONTACT</h3>
+                <ul class="contact-list">
+                    {% if contact_info.phone %}<li class="contact-item">{{ contact_info.phone }}</li>{% endif %}
+                    {% if contact_info.email %}<li class="contact-item">{{ contact_info.email }}</li>{% endif %}
+                    {% if contact_info.location %}<li class="contact-item">{{ contact_info.location }}</li>{% endif %}
+                    {% if contact_info.website %}<li class="contact-item">{{ contact_info.website }}</li>{% endif %}
+                    {% if contact_info.linkedin %}<li class="contact-item">linkedin.com/in/{{ contact_info.linkedin }}</li>{% endif %}
+                </ul>
+            </section>
+            {% endif %}
+
+            {% if skills %}
+            <section class="sidebar-section skills-section">
+                <h3 class="sidebar-title">SKILLS</h3>
+                {% if skills.technical %}
+                <h4 class="skills-category-title">Technical</h4>
+                <ul class="skills-list">
+                    {% for skill in skills.technical %}<li class="skill-item">• {{ skill }}</li>{% endfor %}
+                </ul>
+                {% endif %}
+
+                {% if skills.soft %}
+                <h4 class="skills-category-title">Soft Skills</h4>
+                <ul class="skills-list">
+                    {% for skill in skills.soft %}<li class="skill-item">• {{ skill }}</li>{% endfor %}
+                </ul>
+                {% endif %}
+                
+                {% if skills.tools %}
+                <h4 class="skills-category-title">Tools</h4>
+                <ul class="skills-list">
+                    {% for skill in skills.tools %}<li class="skill-item">• {{ skill }}</li>{% endfor %}
+                </ul>
+                {% endif %}
+            </section>
+            {% endif %}
+
+            {% if education %}
+            <section class="sidebar-section education-section">
+                <h3 class="sidebar-title">EDUCATION</h3>
+                {% for edu in education %}
+                <article class="education-entry">
+                    <p class="education-period">{{ edu.start_date }} - {{ edu.end_date }}</p>
+                    <div class="education-details">
+                        <p>{{ edu.institution | upper }}</p>
+                        <p>{{ edu.degree }}{% if edu.field %}. Major in {{ edu.field }}{% endif %}</p>
+                    </div>
+                </article>
+                {% endfor %}
+            </section>
+            {% endif %}
+        </aside>
+    </div>
+</body>
+</html>

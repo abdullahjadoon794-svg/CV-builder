@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dani Martinez Resume</title>
+    <style>
+        :root {
+            --sidebar-bg: #e0effc;
+            --accent-color: #3b82c4;
+            --text-color: #333333;
+            --light-text-color: #555555;
+            --page-bg: #f4f4f4;
+            --container-bg: #ffffff;
+        }
+
+        @media print {
+            body {
+                background-color: var(--container-bg);
+            }
+            .resume-a4-page {
+                box-shadow: none;
+                margin: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--page-bg);
+            margin: 0;
+            padding: 20px 0;
+            color: var(--text-color);
+            font-size: 14px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .resume-a4-page {
+            display: flex;
+            width: 8.27in;
+            height: 11.69in;
+            margin: 20px auto;
+            background-color: var(--container-bg);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        /* --- Main Content (Left Column) --- */
+        .main-content {
+            width: 65%;
+            padding: 50px 40px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .resume-header .name-first {
+            font-size: 4.5em;
+            font-weight: 300;
+            margin: 0;
+            line-height: 1;
+        }
+
+        .resume-header .name-last {
+            font-size: 4.5em;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            line-height: 1;
+        }
+
+        .resume-header .title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin: 0 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        .profile-summary {
+            font-size: 1.05em;
+            margin-bottom: 40px;
+        }
+
+        .main-section {
+            margin-bottom: 40px;
+        }
+        .main-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .main-section-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin: 0 0 20px 0;
+            padding-top: 10px;
+            border-top: 2px solid var(--text-color);
+        }
+
+        .job-entry {
+            margin-bottom: 25px;
+        }
+        .job-entry:last-child {
+            margin-bottom: 0;
+        }
+        .job-title-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+        .job-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 0;
+        }
+        .job-period {
+            font-weight: bold;
+            font-size: 0.9em;
+            color: var(--light-text-color);
+        }
+        .job-company {
+            font-size: 1em;
+            font-style: italic;
+            color: var(--light-text-color);
+            margin: 0 0 10px 0;
+        }
+        .job-details p {
+            margin: 0 0 5px 0;
+        }
+
+        .awards-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .awards-list li {
+            margin-bottom: 10px;
+        }
+
+        /* --- Sidebar (Right Column) --- */
+        .sidebar {
+            width: 35%;
+            background-color: var(--sidebar-bg);
+            padding: 40px 30px;
+            box-sizing: border-box;
+        }
+        
+        .profile-image-wrapper {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 8px solid var(--container-bg);
+            object-fit: cover;
+            background-color: #ccc;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 40px;
+        }
+        .sidebar-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .sidebar-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin: 0 0 20px 0;
+            padding-top: 10px;
+            border-top: 2px solid var(--text-color);
+        }
+
+        .contact-list, .skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .contact-list li {
+            margin-bottom: 10px;
+        }
+
+        .skills-category-title {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin: 20px 0 10px 0;
+        }
+        
+        .skills-list li {
+            margin-bottom: 8px;
+        }
+
+        .education-entry {
+            margin-bottom: 20px;
+        }
+        .education-entry:last-child {
+            margin-bottom: 0;
+        }
+        .education-period {
+            font-weight: bold;
+            font-size: 1em;
+        }
+        .education-details p {
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="resume-a4-page">
+        <main class="main-content">
+            <header class="resume-header">
+                <h1 class="name-first">DANI</h1>
+                <h1 class="name-last">MARTINEZ</h1>
+                <h2 class="title">WEB DEVELOPMENT</h2>
+            </header>
+            <p class="profile-summary">
+                I am a qualified and professional web developer with five years of experience in database administration and website design. Strong creative and analytical skills. Team player with an eye for detail.
+            </p>
+
+            <section class="main-section experience-section">
+                <h2 class="main-section-title">EXPERIENCE</h2>
+                <article class="job-entry">
+                    <div class="job-title-wrapper">
+                        <h3 class="job-title">APPLICATIONS DEVELOPER</h3>
+                        <span class="job-period">2016-Present</span>
+                    </div>
+                    <p class="job-company">Really Great Company</p>
+                    <div class="job-details">
+                        <p>Database administration and website design</p>
+                        <p>Built the logic for a streamlined ad-serving platform that scaled Educational institutions and online classroom management</p>
+                    </div>
+                </article>
+
+                <article class="job-entry">
+                    <div class="job-title-wrapper">
+                        <h3 class="job-title">WEB CONTENT MANAGER</h3>
+                        <span class="job-period">2014-2016</span>
+                    </div>
+                    <p class="job-company">Really Great Company</p>
+                    <div class="job-details">
+                        <p>Database administration and website design</p>
+                        <p>Built the logic for a streamlined ad-serving platform that scaled Educational institutions and online classroom management</p>
+                    </div>
+                </article>
+            </section>
+
+            <section class="main-section awards-section">
+                <h2 class="main-section-title">AWARD</h2>
+                <ul class="awards-list">
+                    <li>• Top 3 Flat Design Competition (2019)</li>
+                    <li>• Best Creative Illustration Designer Competition (2020)</li>
+                    <li>• Top 3 Creative Social Branding of Influencers (2022)</li>
+                    <li>• Top 3 Flat Design Competition</li>
+                </ul>
+            </section>
+
+        </main>
+        <aside class="sidebar">
+            <div class="profile-image-wrapper">
+                <div class="profile-image"></div>
+            </div>
+
+            <section class="sidebar-section contact-info">
+                <h3 class="sidebar-title">CONTACT</h3>
+                <ul class="contact-list">
+                    <li>123-456-7890</li>
+                    <li>hello@reallygreatsite.com</li>
+                    <li>123 Anywhere St., Any City</li>
+                </ul>
+            </section>
+
+            <section class="sidebar-section skills-info">
+                <h3 class="sidebar-title">SKILLS</h3>
+                <h4 class="skills-category-title">Web Design</h4>
+                <ul class="skills-list">
+                    <li>• Design Thinking</li>
+                    <li>• Wireframe Creation</li>
+                </ul>
+
+                <h4 class="skills-category-title">Front End Coding</h4>
+                <ul class="skills-list">
+                    <li>• Problem-Solving</li>
+                    <li>• Computer Literacy</li>
+                    <li>• Project Management Tools</li>
+                    <li>• Strong Communication</li>
+                </ul>
+            </section>
+
+            <section class="sidebar-section education-info">
+                <h3 class="sidebar-title">EDUCATION</h3>
+                <article class="education-entry">
+                    <p class="education-period">2014-2016</p>
+                    <div class="education-details">
+                        <p>UNIVERSITY OF REALLY GREAT</p>
+                        <p>Master of IT. Major in Technology</p>
+                    </div>
+                </article>
+                <article class="education-entry">
+                    <p class="education-period">2013-2014</p>
+                    <div class="education-details">
+                        <p>UNIVERSITY OF REALLY GREAT</p>
+                        <p>Bachelor of IT. Major in Technology</p>
+                    </div>
+                </article>
+            </section>
+        </aside>
+    </div>
+</body>
+</html>

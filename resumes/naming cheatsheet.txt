@@ -1,0 +1,58 @@
+ 1. The Naming Cheat Sheet
+This is the official, consistent naming convention that I've established based on your first template. We will apply this exact structure to the next two files.
+
+Overall Page Structure
+
+resume-a4-page: The main container for the entire resume page.
+
+sidebar: The left-hand column container.
+
+main-content: The right-hand, main content container.
+
+Header Section (Main Content)
+
+resume-header: Container for the name and title.
+
+name: The main H1 for the person's name.
+
+title: The H2 for the person's job title.
+
+Generic Section Blocks
+
+sidebar-section: A container for a section within the sidebar.
+
+main-section: A container for a section within the main content.
+
+sidebar-title: The H3 title for a sidebar section.
+
+main-section-title: The H2 title for a main content section.
+
+Specific Sections (by Class Name)
+
+contact-info: Sidebar section for contact details.
+
+skills-section: Sidebar section for skills.
+
+languages-section: Sidebar section for languages.
+
+profile-section: Main content section for the summary/profile.
+
+work-experience-section: Main content section for job history.
+
+education-section: Main content section for education.
+
+reference-section: Main content section for references.
+
+Individual Item Entries
+
+contact-item: An individual <li> item in the contact list.
+
+skill-item: An individual <li> item in the skills list.
+
+language-item: An individual <li> item in the languages list.
+
+job-entry: The container for a single job/work experience.
+
+education-entry: The container for a single education record.
+
+reference-entry: The container for a single reference.

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHAVEZ REHMAN</title>
+    <style>
+        :root {
+            --primary-color: #3a4d6d; /* Dark Slate Blue */
+            --secondary-color: #ffffff;
+            --text-color-dark: #333333;
+            --text-color-light: #f0f0f0;
+            --page-bg-color: #e8e8e8;
+            --skill-tag-bg: #e1e6ec;
+            --skill-tag-text: #3a4d6d;
+        }
+
+        @media print {
+            body {
+                background-color: var(--secondary-color);
+            }
+            .resume-a4-page {
+                box-shadow: none;
+                margin: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--page-bg-color);
+            margin: 0;
+            padding: 20px 0;
+            font-size: 14px;
+            color: var(--text-color-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .resume-a4-page {
+            display: flex;
+            width: 8.27in;
+            height: 11.69in;
+            margin: 20px auto;
+            background-color: var(--secondary-color);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        /* --- Sidebar --- */
+        .sidebar {
+            background-color: var(--primary-color);
+            color: var(--text-color-light);
+            width: 38%;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+
+        .profile-image-wrapper {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 6px solid #5c6e8d;
+            object-fit: cover;
+            background-color: #ccc;
+        }
+
+        .sidebar-section {
+            margin-bottom: 30px;
+        }
+        .sidebar-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .sidebar-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #5c6e8d;
+        }
+
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .contact-item {
+            margin-bottom: 8px;
+        }
+        
+        .education-entry, .certification-entry {
+            margin-bottom: 20px;
+        }
+        .education-entry:last-child, .certification-entry:last-child {
+            margin-bottom: 0;
+        }
+        .education-entry .degree, .certification-entry .cert-title {
+            font-weight: bold;
+            font-size: 1.05em;
+        }
+        .education-entry .university-dates, .certification-entry .cert-details {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .skills-list, .languages-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .skill-item, .language-item {
+            background-color: var(--skill-tag-bg);
+            color: var(--skill-tag-text);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        /* --- Main Content --- */
+        .main-content {
+            width: 62%;
+            padding: 50px 40px;
+            box-sizing: border-box;
+        }
+        .resume-header {
+            margin-bottom: 40px;
+        }
+        .resume-header .name {
+            font-size: 3.5em;
+            font-weight: 300;
+            letter-spacing: 4px;
+            color: var(--primary-color);
+            margin: 0;
+            line-height: 1;
+        }
+        .resume-header .name-last {
+            font-weight: 700;
+        }
+        .resume-header .title {
+            font-size: 1.2em;
+            color: var(--primary-color);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+
+        .main-section {
+            margin-bottom: 35px;
+        }
+        .main-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .main-section-title {
+            font-size: 1.5em;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin: 0 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .job-entry {
+            margin-bottom: 25px;
+        }
+        .job-entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .job-title-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+        .job-title-wrapper .job-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 0;
+        }
+        .job-title-wrapper .job-dates {
+            font-size: 0.9em;
+            font-style: italic;
+            color: #666;
+            white-space: nowrap;
+        }
+        .job-company {
+            font-size: 1.05em;
+            font-weight: bold;
+            margin: 0 0 8px 0;
+            color: #555;
+        }
+        .job-description, .about-me-text {
+            margin: 0;
+        }
+        
+        .reference-entry {
+            margin-bottom: 15px;
+        }
+        .reference-entry:last-child {
+            margin-bottom: 0;
+        }
+        .reference-entry p {
+            margin: 0;
+        }
+        .reference-name {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="resume-a4-page">
+        <aside class="sidebar">
+            <div class="profile-image-wrapper">
+                <div class="profile-image"></div>
+            </div>
+
+            
+            <section class="sidebar-section contact-info">
+                <h3 class="sidebar-title">Contact</h3>
+                <ul class="contact-list">
+                    <li class="contact-item">+44 7584329865</li>
+                    <li class="contact-item">shavaizrehman787@gmail.com</li>
+                    
+                    <li class="contact-item">UB4 8HA Hayes End London</li>
+                    
+                </ul>
+            </section>
+            
+            
+            
+            <section class="sidebar-section education-section">
+                <h3 class="sidebar-title">Education</h3>
+                
+                <article class="education-entry">
+                    <p class="degree">Bachelor of Science (BS) in Economics</p>
+                    <p class="university-dates">University of Haripur | 2014 - 2018</p>
+                </article>
+                
+                <article class="education-entry">
+                    <p class="degree">F.Sc in Pre-Engineering</p>
+                    <p class="university-dates">Jinnah Jame Public School and College | 2009 - 2011</p>
+                </article>
+                
+                <article class="education-entry">
+                    <p class="degree">Matriculation</p>
+                    <p class="university-dates">Pakistan International Public School | 2007 - 2009</p>
+                </article>
+                
+            </section>
+            
+
+            
+            <section class="sidebar-section certification-section">
+                <h3 class="sidebar-title">Certifications</h3>
+                
+                <article class="certification-entry">
+                    <p class="cert-title">• 1st National Youth Conference AUST</p>
+                    <p class="cert-details"> | February 2018</p>
+                </article>
+                
+                <article class="certification-entry">
+                    <p class="cert-title">• Brand Loyalty (A Case Study of Adidas on Sportswear Customers)</p>
+                    <p class="cert-details"> | February 2018 - June 2018</p>
+                </article>
+                
+            </section>
+            
+
+            
+            <section class="sidebar-section skills-section">
+                <h3 class="sidebar-title">Skills</h3>
+                <ul class="skills-list">
+                    <li class="skill-item">Financial Analysis</li><li class="skill-item">Loan Processing</li>
+                    <li class="skill-item">Relationship Management</li><li class="skill-item">Risk Mitigation</li><li class="skill-item">Communication</li><li class="skill-item">Decision Making</li><li class="skill-item">Team Collaboration</li><li class="skill-item">Problem Solving</li>
+                    
+                    
+                </ul>
+            </section>
+            
+            
+            
+            <section class="sidebar-section languages-section">
+                <h3 class="sidebar-title">Language</h3>
+                <ul class="languages-list">
+                    
+                    <li class="language-item">English</li>
+                    
+                    <li class="language-item">Urdu</li>
+                    
+                    <li class="language-item">Punjabi</li>
+                    
+                    <li class="language-item">Hindko</li>
+                    
+                    <li class="language-item">French</li>
+                    
+                </ul>
+            </section>
+            
+
+        </aside>
+
+        <main class="main-content">
+            <header class="resume-header">
+                <h1 class="name">SHAVEZ REHMAN</h1>
+                <p class="title">
+                    
+                        AGRICULTURE CREDIT OFFICER
+                    
+                </p>
+            </header>
+
+            
+            <section class="main-section profile-section">
+                <h2 class="main-section-title">About me</h2>
+                <p class="about-me-text">Results-driven Economics graduate with experience in efficiently processing agricultural loans and analyzing financial reports. Adept at fostering strong client relationships and optimizing loan performance while mitigating risks. Seeking to leverage skills for impactful contributions in the financial industry.</p>
+            </section>
+            
+
+            
+            <section class="main-section work-experience-section">
+                <h2 class="main-section-title">Experience</h2>
+                
+                <article class="job-entry">
+                    <div class="job-title-wrapper">
+                        <h3 class="job-title">Agriculture Credit Officer</h3>
+                        <span class="job-dates">Aug 2023 - Present</span>
+                    </div>
+                    <p class="job-company">The Bank of Khyber</p>
+                    
+                    <p class="job-description">Evaluate and process agricultural loan applications, assessing creditworthiness and recommending suitable credit solutions while ensuring compliance with policies and regulations. Foster strong relationships with agricultural clients, provide financial guidance, and monitor loan performance, optimizing customer satisfaction and mitigating associated risks.</p>
+                    
+                </article>
+                
+                <article class="job-entry">
+                    <div class="job-title-wrapper">
+                        <h3 class="job-title">Loan Processing Team Lead Trainer</h3>
+                        <span class="job-dates">Oct 2022 - Aug 2023</span>
+                    </div>
+                    <p class="job-company">Khushhali Microfinance Bank</p>
+                    
+                    <p class="job-description">Developed and executed training programs to enhance team performance and productivity. Led a team, providing guidance and coaching to achieve training objectives and meet organizational goals.</p>
+                    
+                </article>
+                
+                <article class="job-entry">
+                    <div class="job-title-wrapper">
+                        <h3 class="job-title">MSME/IL/GL Loan Officer</h3>
+                        <span class="job-dates">Feb 2019 - Oct 2022</span>
+                    </div>
+                    <p class="job-company">Khushhali Microfinance Bank</p>
+                    
+                    <p class="job-description">Efficiently handled loan disbursement processes, ensuring accuracy and compliance with internal policies and regulations. Conducted thorough financial reports analysis, enabling data-driven decision-making and enhanced loan portfolio management.</p>
+                    
+                </article>
+                
+            </section>
+            
+
+            
+
+            
+            <section class="main-section awards-section">
+                <h2 class="main-section-title">Awards</h2>
+                <ul>
+                    
+                    <li>Member of Creative Bachelor Society in February 2018</li>
+                    
+                    <li>Organized Spring Gala and Bizz Buzz events under Creative Bachelors in June 2019</li>
+                    
+                </ul>
+            </section>
+            
+        </main>
+    </div>
+
+</body>
+</html>
