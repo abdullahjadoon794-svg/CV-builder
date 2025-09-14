@@ -5,7 +5,10 @@
     {% for cert in certs %}
     <article class="certification-entry">
         <h4>{{ cert.name }}</h4>
-        <p>{{ cert.issuer }} | {{ cert.date }}</p>
+        <p>
+            {% if cert.issuer and cert.issuer != 'null' %}{{ cert.issuer }}{% else %}N/A{% endif %} |
+            {% if cert.date and cert.date != 'null' %}{{ cert.date }}{% else %}N/A{% endif %}
+        </p>
     </article>
     {% endfor %}
 </section>

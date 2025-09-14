@@ -26,6 +26,26 @@
             }
         }
 
+        /* --- Print-Specific Styles for PDF Generation --- */
+        @media print {
+            @page {
+                size: A4;
+                margin: 0.75in;
+            }
+
+            body {
+                background-color: #ffffff; /* Ensure background is white for PDF */
+            }
+
+            h1, h2, h3, h4 {
+                page-break-after: avoid; /* Prevents a page break right after a heading */
+            }
+
+            .job-entry, .education-entry, .project-entry, .certification-entry {
+                page-break-inside: avoid; /* Tries to keep an entire entry on one page */
+            }
+        }
+
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             background-color: var(--page-bg);

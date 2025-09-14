@@ -3,8 +3,9 @@ from pathlib import Path
 import os
 
 # Import the functions from your upgraded scripts
-from parser_ui import parse_resume
+from parser import parse_resume
 from generator_ui import generate_html
+from pdf_generator import create_pdf
 
 # --- PAGE CONFIG ---
 st.set_page_config(
@@ -77,24 +78,57 @@ if generate_button:
                 st.error(f"An error occurred during generation: {e}")
                 st.stop()
 
+        # --- PDF GENERATION ---
+        with st.spinner("Converting to PDF..."):
+            pdf_output_path = create_pdf(html_output_path)
+        
         # --- DISPLAY RESULTS ---
         st.subheader("Your New Resume is Ready!")
         
-        # Read the generated HTML file
+        # Always read and display the HTML content
         with open(html_output_path, "r", encoding="utf-8") as f:
             html_content = f.read()
 
-        # Display as an iframe
+        # Display HTML preview in an iframe
+        st.markdown("### 📄 Resume Preview")
         st.components.v1.html(html_content, height=800, scrolling=True)
-
-        # Offer a download button
-        st.download_button(
-            label="⬇️ Download HTML",
-            data=html_content,
-            file_name=html_output_path.name,
-            mime="text/html"
-        )
         
-        # Clean up temp files
+        # Create two columns for download buttons
+        col1, col2 = st.columns(2)
+        
+        if pdf_output_path:
+            # Success - PDF was generated
+            st.success("✅ PDF generation complete!")
+            
+            # Read the PDF file for download
+            with open(pdf_output_path, "rb") as f:
+                pdf_data = f.read()
+            
+            # Offer PDF download button in first column
+            with col1:
+                st.download_button(
+                    label="⬇️ Download PDF",
+                    data=pdf_data,
+                    file_name=pdf_output_path.name,
+                    mime="application/pdf"
+                )
+            
+            # Clean up PDF file after reading
+            os.remove(pdf_output_path)
+        else:
+            # PDF generation failed
+            st.warning("PDF generation failed. HTML version available for download.")
+        
+        # Always offer HTML download button in second column
+        with col2:
+            st.download_button(
+                label="⬇️ Download HTML",
+                data=html_content,
+                file_name=html_output_path.name,
+                mime="text/html"
+            )
+        
+        # Clean up remaining temp files
         os.remove(temp_file_path)
         os.remove(json_output_path)
+        os.remove(html_output_path)

@@ -1,23 +1,23 @@
 {
   "contact_info": {
     "name": "HASHIM KHAN",
-    "phone": "0563740251",
-    "location": "Villa No.4 street No.6\nAl Nasareya Sharjah",
+    "email": "jadoonkhan587@gmail.com, jadoon.atd29@gmail.com",
+    "phone": "0563740251, 0565083448",
+    "location": "Villa No.4 street No.6 Al Nasareya Sharjah",
     "linkedin": "null",
     "github": "null",
     "website": "null"
   },
-  "summary": "Seeking the challenging position in any dynamic Health care organization in\nUAE to get more exposure and where my education and skills as a Surgical\nTechnician in the practical filed have profound impact in the growth and\nproductivity of the organization and as well as my personal growth\nopportunities to enhance skill and knowledge to the next level.To play the positive and active role as allied health worker for upholding the\nsociety and the related individuals.To accepts the challenging position in organization and grows on the basis of\nmy personal abilities and to provide effective and efficient services to the best\nof my knowledge to and organization and want to become successful and result\noriented person.",
   "work_experience": [
     {
       "role": "Operation Theatre Technician",
       "company": "Kabul Specialty Medical Center (Sharjah)",
       "location": "Sharjah",
-      "start_date": "March 2024",
+      "start_date": "2024-03",
       "end_date": "null",
       "is_current": true,
       "bullets": [
-        "Working as OT technician from last one year almost, during my duty I assist the\ndoctor for daily surgeries, due to located in industrial area mostly injured patients\ncoming every day, mostly my duties, Stitching, Patient wound dressing, home patient\nwound dressing, Bandage replacement and keep all instruments clean and sterilized"
+        "Working as OT technician from last one year almost, during my duty I assist the doctor for daily surgeries, due to located in industrial area mostly injured patients coming every day, mostly my duties, Stitching, Patient wound dressing, home patient wound dressing, Bandage replacement and keep all instruments clean and sterilized"
       ]
     },
     {
@@ -28,22 +28,12 @@
       "end_date": "null",
       "is_current": false,
       "bullets": [
-        "Closed Reduction",
-        "POP Cast",
-        "POP Back Slab",
-        "Hip Spica",
-        "Shoulder Spica",
-        "U-Slab Application (Humerus / Elbow fractures",
-        "Long Leg Slab",
-        "Short Leg Slab",
-        "Above Elbow Slab",
-        "Below Elbow Slab",
         "During the job I was working as a Surgical OT Technician",
-        "AssisttheDoctors withwell manners in operationtheater by handing them needed\ninstruments during surgery and supply of equipment's and supply of drugs to anesthetist",
-        "The preparation of operation theater includes preparation of equipment and the patient for\nsurgery.",
-        "Assist in the preparation of patient prior to surgery pre-operative shave, patient\npositioning",
-        "Responsible for monitoring the patient during the procedure as well as cleaning and\nsterilizing the operating theatre after the surgery has been completed.",
-        "After operations, transferring patient to the recovery room and ensure safe transfer of\npatient form operating room to ward or other unit.",
+        "Assist the Doctors with well manners in operation theater by handing them needed instruments during surgery and supply of equipment's and supply of drugs to anesthetist",
+        "The preparation of operation theater includes preparation of equipment and the patient for surgery.",
+        "Assist in the preparation of patient prior to surgery pre-operative shave, patient positioning",
+        "Responsible for monitoring the patient during the procedure as well as cleaning and sterilizing the operating theatre after the surgery has been completed.",
+        "After operations, transferring patient to the recovery room and ensure safe transfer of patient form operating room to ward or other unit.",
         "He is responsible to ensure that all the equipment working properly.",
         "Conducting regular maintenance as needed and troubleshooting any issues that arise.",
         "He also ensures that all safety protocols are followed and the OT is clean and sanitary.",
@@ -59,7 +49,7 @@
       "end_date": "null",
       "is_current": false,
       "bullets": [
-        "Working as OT Technician as interne six month I learn practical knowledgein\ndifferent departments of the hospital this is the best experience for my carrierasOT\nTechnician I work as interne in the big District Hospital."
+        "Working as OT Technician as interne six month I learn practical knowledge in different departments of the hospital this is the best experience for my carrier as OT Technician I work as interne in the big District Hospital."
       ]
     }
   ],
@@ -87,39 +77,38 @@
     {
       "degree": "Diploma Surgical Tech",
       "field": "null",
-      "institution": "Frontier Institute\nof\nMedical\nSciences",
+      "institution": "Frontier Institute of Medical Sciences",
       "location": "Abbottabad",
       "start_date": "2021",
       "end_date": "null",
       "gpa": "null",
-      "honors": [
-        "Certified Registered Allied Health Care Professional"
-      ]
+      "honors": []
     }
   ],
-  "certifications": [],
   "skills": {
-    "clinical": [
-      "Stitching",
-      "Patient wound dressing",
-      "Bandage replacement",
-      "Closed Reduction",
-      "POP Cast",
-      "POP Back Slab",
-      "Hip Spica",
-      "Shoulder Spica",
-      "U-Slab Application",
-      "Long Leg Slab",
-      "Short Leg Slab",
-      "Above Elbow Slab",
-      "Below Elbow Slab"
-    ],
-    "technical": [
-      "Sterilization"
-    ],
+    "clinical": [],
+    "technical": [],
     "soft": [],
     "tools": []
   },
+  "summary": "{\"professionalSummary\": \"Seeking a challenging position in a dynamic healthcare organization in the UAE to leverage my skills and education as a Surgical Technician.  I aim to contribute to organizational growth and productivity while enhancing my skills and knowledge. I want to play a positive role as an allied health worker and become a successful, results-oriented person.\"}",
+  "certifications": [
+    {
+      "name": "Allied Health-Technician (Operation Theatre Technology)",
+      "issuer": "DHA (Dubai Health Authority)",
+      "date": "null"
+    },
+    {
+      "name": "Allied Health-Technician (Operation Theatre Technology)",
+      "issuer": "MOHAP",
+      "date": "null"
+    },
+    {
+      "name": "RegistrationNumber:2018/MF/FIMS/ATD/ST/FS/15",
+      "issuer": "Govt.ofKhyberPakhtunkhwaFaculty of Paramedical and Allied Health Sciences (FPAHS)",
+      "date": "null"
+    }
+  ],
   "projects": [],
   "languages": [],
   "awards": []
