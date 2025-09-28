@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MEHMOONA EBjIaBzI Ahmed</title>
+    <title>{{ contact_info.name | default('Resume') }}</title>
     <style>
         :root {
             --sidebar-bg: #e0effc;
@@ -23,6 +23,26 @@
                 margin: 0;
                 width: 100%;
                 height: 100%;
+            }
+        }
+
+        /* --- Print-Specific Styles for PDF Generation --- */
+        @media print {
+            @page {
+                size: A4;
+                margin: 0.75in;
+            }
+
+            body {
+                background-color: #ffffff; /* Ensure background is white for PDF */
+            }
+
+            h1, h2, h3, h4 {
+                page-break-after: avoid; /* Prevents a page break right after a heading */
+            }
+
+            .job-entry, .education-entry, .project-entry, .certification-entry {
+                page-break-inside: avoid; /* Tries to keep an entire entry on one page */
             }
         }
 
@@ -215,25 +235,27 @@
     <div class="resume-a4-page">
         <main class="main-content">
             <header class="resume-header">
-                <h1 class="name">MEHMOONA EBJIABZI AHMED</h1>
+                <h1 class="name">{{ contact_info.name | upper }}</h1>
                 <h2 class="title">
-                    
+                    {% if work_experience %}
+                        {{ work_experience[0].role | upper }}
+                    {% else %}
                         PROFESSIONAL TITLE
-                    
+                    {% endif %}
                 </h2>
             </header>
             
-            
-            <section class="main-section profile-section">
-                <p>Aiming to achieve excellence by providing optimum level of services with consistent quality improvement & exceeding goals. Ready to take-up any challenging task by utilizing my time and use my resource management skills along-with my technical creativity. Quick to grasp new ideas and concepts to develop innovative and creative solution of problems.</p>
-            </section>
-            
+            {% from 'components/_summary.html' import render_summary %}
+            {{ render_summary(summary) }}
 
-            
+            {% from 'components/_work_experience.html' import render_work_experience %}
+            {{ render_work_experience(work_experience) }}
 
-            
+            {% from 'components/_awards.html' import render_awards %}
+            {{ render_awards(awards) }}
 
-            
+            {% from 'components/_projects.html' import render_projects %}
+            {{ render_projects(projects) }}
 
         </main>
         <aside class="sidebar">
@@ -241,65 +263,15 @@
                 <div class="profile-image"></div>
             </div>
 
-            
-            <section class="sidebar-section contact-info">
-                <h3 class="sidebar-title">CONTACT</h3>
-                <ul class="contact-list">
-                    <li class="contact-item">+92-336-9997600</li>
-                    <li class="contact-item">ia5005255@gmail.com</li>
-                    <li class="contact-item">Village Talokar, Near Railway Phatak, Tehsil & District Haripur.</li>
-                    
-                    
-                </ul>
-            </section>
-            
+            {% from 'components/_contact_info.html' import render_contact_info %}
+            {{ render_contact_info(contact_info) }}
 
-            
-            <section class="sidebar-section skills-section">
-                <h3 class="sidebar-title">SKILLS</h3>
-                
+            {% from 'components/_skills.html' import render_skills %}
+            {{ render_skills(skills) }}
 
-                
-                <h4 class="skills-category-title">Soft Skills</h4>
-                <ul class="skills-list">
-                    <li class="skill-item">• Team player</li><li class="skill-item">• leadership</li><li class="skill-item">• monitoring</li><li class="skill-item">• Curriculum planning & implementation</li><li class="skill-item">• Self motivated</li><li class="skill-item">• disciplined</li><li class="skill-item">• dedicated</li><li class="skill-item">• Problem solving</li><li class="skill-item">• quick decision making</li><li class="skill-item">• Adaptable</li><li class="skill-item">• versatile</li><li class="skill-item">• challenge-oriented</li><li class="skill-item">• Strong leadership skills</li>
-                </ul>
-                
-                
-                
-            </section>
-            
+            {% from 'components/_education.html' import render_education %}
+            {{ render_education(education) }}
 
-            
-            <section class="sidebar-section education-section">
-                <h3 class="sidebar-title">EDUCATION</h3>
-                
-                <article class="education-entry">
-                    <p class="education-period">2011 - </p>
-                    <div class="education-details">
-                        <p>BISE ABBOTTABAD</p>
-                        <p>SSC (Science). Major in Science</p>
-                    </div>
-                </article>
-                
-                <article class="education-entry">
-                    <p class="education-period">2014 - </p>
-                    <div class="education-details">
-                        <p>KPBTE PESHAWAR</p>
-                        <p>DAE (Civil). Major in Civil</p>
-                    </div>
-                </article>
-                
-                <article class="education-entry">
-                    <p class="education-period">2023 - </p>
-                    <div class="education-details">
-                        <p>UNIVERSITY OF HARIPUR</p>
-                        <p>B.S (G. Studies). Major in G. Studies</p>
-                    </div>
-                </article>
-                
-            </section>
-            
         </aside>
     </div>
 </body>

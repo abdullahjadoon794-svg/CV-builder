@@ -16,6 +16,10 @@ load_dotenv()
 # Fetch key
 api_key = os.getenv("GEMINI_API_KEY")
 
+# --- Ollama Configuration ---
+OLLAMA_ENDPOINT = "http://localhost:11434/api/chat"
+OLLAMA_MODEL = "qwen2.5-coder:7b" # Or any other model you have pulled
+
 # ---- tiny cleaner to reduce LLM guesswork
 def preclean(text: str) -> str:
     # normalize bullets, collapse whitespace, strip fancy quotes
@@ -160,6 +164,7 @@ SYSTEM_INSTRUCTION = (
 SEGMENTATION_SCHEMA: Dict[str, Any] = {
     "type": "OBJECT",
     "properties": {
+        "candidate_name_text": {"type": "STRING", "description": "The full name of the candidate, typically the largest text at the top."},
         "contact_info_section": {"type": "STRING"},
         "summary_section": {"type": "STRING"},
         "work_experience_section": {"type": "STRING"},
@@ -170,14 +175,14 @@ SEGMENTATION_SCHEMA: Dict[str, Any] = {
         "languages_section": {"type": "STRING"},
         "awards_section": {"type": "STRING"},
     },
-    "required": ["contact_info_section", "work_experience_section", "education_section", "skills_section"]
+    "required": ["candidate_name_text","contact_info_section", "work_experience_section", "education_section", "skills_section"]
 }
 
 # ---- Segmentation function for first-stage parsing
 def segment_resume_text(text: str) -> Dict[str, str]:
     """Extract sections from resume text using Gemini API with segmentation schema."""
     client = genai.Client(api_key=api_key)
-    model_name = "gemini-1.5-flash"
+    model_name = "gemini-1.5-flash"#gemini-1.5-flash,gemini-2.5-flash
     
     config = types.GenerateContentConfig(
         temperature=0.0,
@@ -474,16 +479,29 @@ def parse_resume(src_path: Path) -> Path:
     # Second stage: Parse each section individually with error handling
     parsed_data = {}
     
-    # Contact info with source validation
+    # --- MODIFIED CONTACT INFO & NAME HANDLING ---
     try:
+        # 1. Parse the contact info block for details like email, phone, etc.
         contact_info = parse_contact_info_chunk(segments.get("contact_info_section", ""))
+        
+        # 2. Get the candidate's name from its dedicated, high-priority segment.
+        candidate_name = segments.get("candidate_name_text", "")
+        
+        # 3. Explicitly add the captured name to the contact_info dictionary.
+        if candidate_name:
+            contact_info["name"] = candidate_name
+        
+        # 4. Run the final validation check on the name.
         if contact_info and "name" in contact_info:
             contact_info["name"] = wipe_if_not_in_source(contact_info.get("name"), text)
+            
         parsed_data["contact_info"] = contact_info or {}
     except Exception as e:
         print(f"⚠️ Contact info parsing error: {e}")
         parsed_data["contact_info"] = {}
     
+    # --- (The rest of the function remains the same) ---
+
     # Work experience
     try:
         parsed_data["work_experience"] = parse_work_experience_chunk(segments.get("work_experience_section", ""))
@@ -551,7 +569,6 @@ def parse_resume(src_path: Path) -> Path:
     out_path.write_text(json.dumps(parsed_data, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"✅ Parsed JSON saved to: {out_path}")
     return out_path
-
 def main():
     if len(sys.argv) < 2:
         print("Usage: python gemini_parser.py path/to/sample.txt")

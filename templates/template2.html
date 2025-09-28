@@ -1,9 +1,20 @@
+{# Import ALL possible components at the top #}
+{% from 'components/_contact_info.html' import render_contact_info %}
+{% from 'components/_summary.html' import render_summary %}
+{% from 'components/_work_experience.html' import render_work_experience %}
+{% from 'components/_education.html' import render_education %}
+{% from 'components/_skills.html' import render_skills %}
+{% from 'components/_projects.html' import render_projects %}
+{% from 'components/_certifications.html' import render_certifications %}
+{% from 'components/_languages.html' import render_languages %}
+{% from 'components/_awards.html' import render_awards %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ contact_info.name | default('Resume') }}</title>
+    <title>{{ resume_data.contact_info.name | default('Resume') }}</title>
     <style>
         :root {
             --sidebar-bg: #e0effc;
@@ -30,7 +41,7 @@
         @media print {
             @page {
                 size: A4;
-                margin: 0.75in;
+                margin: 0.3in;
             }
 
             body {
@@ -228,51 +239,61 @@
         .education-details p {
             margin: 0;
         }
-
     </style>
 </head>
 <body>
-    <div class="resume-a4-page">
+    {# This loop now builds the entire resume, including page breaks #}
+    {% for page in layout_plan.pages %}
+      <div class="resume-a4-page">
+        {# Template 2 has a main content/sidebar layout #}
         <main class="main-content">
+            {% if loop.first %} {# <-- ADD THIS CONDITION #}
             <header class="resume-header">
-                <h1 class="name">{{ contact_info.name | upper }}</h1>
+                <h1 class="name">{{ resume_data.contact_info.name | upper }}</h1>
                 <h2 class="title">
-                    {% if work_experience %}
-                        {{ work_experience[0].role | upper }}
+                    {% if resume_data.work_experience %}
+                        {{ resume_data.work_experience[0].role | upper }}
                     {% else %}
                         PROFESSIONAL TITLE
                     {% endif %}
                 </h2>
             </header>
-            
-            {% from 'components/_summary.html' import render_summary %}
-            {{ render_summary(summary) }}
-
-            {% from 'components/_work_experience.html' import render_work_experience %}
-            {{ render_work_experience(work_experience) }}
-
-            {% from 'components/_awards.html' import render_awards %}
-            {{ render_awards(awards) }}
-
-            {% from 'components/_projects.html' import render_projects %}
-            {{ render_projects(projects) }}
-
+            {% endif %} {# <-- END THE CONDITION #}
+            {# Loop through components and render them #}
+            {% for item in page.content %}
+                {% if item.component == 'summary' %}
+                    {{ render_summary(resume_data[item.data_key]) }}
+                {% elif item.component == 'work_experience' %}
+                    {{ render_work_experience(resume_data[item.data_key]) }}
+                {% elif item.component == 'awards' %}
+                    {{ render_awards(resume_data[item.data_key]) }}
+                {% elif item.component == 'projects' %}
+                    {{ render_projects(resume_data[item.data_key]) }}
+                {% endif %}
+            {% endfor %}
         </main>
         <aside class="sidebar">
+            {% if loop.first %} {# <-- ADD THIS CONDITION #}
             <div class="profile-image-wrapper">
                 <div class="profile-image"></div>
             </div>
-
-            {% from 'components/_contact_info.html' import render_contact_info %}
-            {{ render_contact_info(contact_info) }}
-
-            {% from 'components/_skills.html' import render_skills %}
-            {{ render_skills(skills) }}
-
-            {% from 'components/_education.html' import render_education %}
-            {{ render_education(education) }}
-
+            {% endif %} {# <-- END THE CONDITION #}
+            {# Loop through components and render them #}
+            {% for item in page.content %}
+                {% if item.component == 'contact_info' %}
+                    {{ render_contact_info(resume_data[item.data_key]) }}
+                {% elif item.component == 'skills' %}
+                    {{ render_skills(resume_data[item.data_key]) }}
+                {% elif item.component == 'education' %}
+                    {{ render_education(resume_data[item.data_key]) }}
+                {% elif item.component == 'languages' %}
+                    {{ render_languages(resume_data[item.data_key]) }}
+                {% elif item.component == 'certifications' %}
+                    {{ render_certifications(resume_data[item.data_key]) }}
+                {% endif %}
+            {% endfor %}
         </aside>
-    </div>
+      </div>
+    {% endfor %}
 </body>
 </html>

@@ -1,0 +1,114 @@
+{
+  "contact_info": {
+    "name": "SHAVEZ REHMAN",
+    "email": "shavaizrehman787@gmail.com",
+    "phone": "+44 7584329865",
+    "location": "UB4 8HA Hayes End London",
+    "linkedin": "null",
+    "github": "null",
+    "website": "null"
+  },
+  "work_experience": [
+    {
+      "role": "Agriculture Credit Officer",
+      "company": "The Bank of Khyber",
+      "location": "Havelian",
+      "start_date": "2023",
+      "end_date": "Present",
+      "is_current": true,
+      "bullets": [
+        "Evaluate and process agricultural loan applications, assessing creditworthiness and recommending suitable credit solutions while ensuring compliance with policies and regulations.",
+        "Foster strong relationships with agricultural clients, provide financial guidance, and monitor loan performance, optimizing customer satisfaction and mitigating associated risks."
+      ]
+    },
+    {
+      "role": "Loan Processing Team Lead Trainer",
+      "company": "Khushhali Microfinance Bank",
+      "location": "Attock",
+      "start_date": "2022-10",
+      "end_date": "2023-08",
+      "is_current": false,
+      "bullets": [
+        "Developed and executed training programs to enhance team performance and productivity.",
+        "Led a team, providing guidance and coaching to achieve training objectives and meet organizational goals."
+      ]
+    },
+    {
+      "role": "MSME/IL/GL Loan Officer",
+      "company": "Khushhali Microfinance Bank",
+      "location": "Haripur",
+      "start_date": "2019-02",
+      "end_date": "2022-10",
+      "is_current": false,
+      "bullets": [
+        "Efficiently handled loan disbursement processes, ensuring accuracy and compliance with internal policies and regulations.",
+        "Conducted thorough financial reports analysis, enabling data-driven decision-making and enhanced loan portfolio management."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Science",
+      "field": "Economics",
+      "institution": "University of Haripur",
+      "location": "Haripur",
+      "start_date": "2014",
+      "end_date": "2018"
+    },
+    {
+      "degree": "F.Sc",
+      "field": "Pre-Engineering",
+      "institution": "Jinnah Jame Public School and College",
+      "location": "Haripur",
+      "start_date": "2009",
+      "end_date": "2011"
+    },
+    {
+      "degree": "Matriculation",
+      "institution": "Pakistan International Public and School",
+      "location": "Haripur",
+      "start_date": "2007",
+      "end_date": "2009"
+    }
+  ],
+  "skills": {
+    "clinical": [],
+    "technical": [
+      "Financial Analysis",
+      "Risk Mitigation"
+    ],
+    "soft": [
+      "Relationship Management",
+      "Communication",
+      "Decision Making",
+      "Team Collaboration",
+      "Problem Solving"
+    ],
+    "tools": []
+  },
+  "summary": "Results-driven Economics graduate with experience in efficiently processing agricultural loans and analyzing financial reports. Adept at fostering strong client relationships and optimizing loan performance while mitigating risks. Seeking to leverage skills for impactful contributions in the financial industry.",
+  "certifications": [
+    {
+      "name": "1st National Youth Conference",
+      "issuer": "AUST",
+      "date": "2018-02"
+    },
+    {
+      "name": "Brand Loyalty (A Case Study of Adidas on Sportswear Customers)",
+      "issuer": "null",
+      "date": "2018-02"
+    }
+  ],
+  "projects": [],
+  "languages": [
+    "English",
+    "Urdu",
+    "Punjabi",
+    "Hindko",
+    "French"
+  ],
+  "awards": [
+    "Member of Creative Bachelor Society",
+    "Organized Spring Gala and Bizz Buzz events under Creative Bachelors"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "pages": [
+    {
+      "page": 1,
+      "content": [
+        {
+          "component": "contact_info",
+          "data_key": "contact_info"
+        },
+        {
+          "component": "summary",
+          "data_key": "summary"
+        },
+        {
+          "component": "work_experience",
+          "data_key": "work_experience"
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "content": [
+        {
+          "component": "education",
+          "data_key": "education"
+        },
+        {
+          "component": "skills",
+          "data_key": "skills"
+        },
+        {
+          "component": "certifications",
+          "data_key": "certifications"
+        },
+        {
+          "component": "languages",
+          "data_key": "languages"
+        },
+        {
+          "component": "awards",
+          "data_key": "awards"
+        }
+      ]
+    }
+  ]
+}
