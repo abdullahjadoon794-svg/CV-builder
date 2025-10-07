@@ -15,7 +15,8 @@ TEMP_DIR.mkdir(exist_ok=True)
 # --- IMPORT THE CORRECT FUNCTIONS ---
 # Make sure these point to your final script files
 from parser import parse_resume
-from generator_ui import generate_html
+from generator_ui_layout import generate_html
+
 
 # --- UI ---
 st.title("AI Resume Builder 🤖")

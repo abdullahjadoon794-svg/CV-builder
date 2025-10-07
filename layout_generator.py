@@ -50,7 +50,7 @@ def generate_layout_plan(resume_data: Dict[str, Any], template_style: str) -> Di
         A JSON object representing the layout plan.
     """
     client = genai.Client(api_key=api_key)
-    model_name = "gemini-1.5-flash"
+    model_name = "gemini-2.5-flash-lite"
     
     # Create a simple summary of the data to help the AI gauge content size
     content_summary = {key: len(value) if isinstance(value, list) else 1 for key, value in resume_data.items()}
@@ -85,7 +85,11 @@ def generate_layout_plan(resume_data: Dict[str, Any], template_style: str) -> Di
     )
 
     try:
-        resp = client.models.generate_content(model=model_name, contents=prompt, config=config)
+        resp = client.models.generate_content(
+    model=model_name,
+    contents=[{"role": "user", "parts": [{"text": prompt}]}],
+    config=config
+)
         raw_text = resp.text.strip()
         clean_json_text = re.sub(r"^```json\s*|\s*```$", "", raw_text)
         layout_plan = json.loads(clean_json_text)

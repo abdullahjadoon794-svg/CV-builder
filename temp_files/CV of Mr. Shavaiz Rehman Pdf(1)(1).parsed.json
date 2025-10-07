@@ -1,19 +1,16 @@
 {
   "contact_info": {
-    "name": "SHAVEZ REHMAN",
     "email": "shavaizrehman787@gmail.com",
     "phone": "+44 7584329865",
     "location": "UB4 8HA Hayes End London",
-    "linkedin": "null",
-    "github": "null",
-    "website": "null"
+    "name": "SHAVEZ REHMAN"
   },
   "work_experience": [
     {
       "role": "Agriculture Credit Officer",
       "company": "The Bank of Khyber",
       "location": "Havelian",
-      "start_date": "2023",
+      "start_date": "2023-08",
       "end_date": "Present",
       "is_current": true,
       "bullets": [
@@ -65,7 +62,7 @@
     },
     {
       "degree": "Matriculation",
-      "institution": "Pakistan International Public and School",
+      "institution": "Pakistan International Public School",
       "location": "Haripur",
       "start_date": "2007",
       "end_date": "2009"
@@ -74,11 +71,11 @@
   "skills": {
     "clinical": [],
     "technical": [
-      "Financial Analysis",
-      "Risk Mitigation"
+      "Financial Analysis"
     ],
     "soft": [
       "Relationship Management",
+      "Risk Mitigation",
       "Communication",
       "Decision Making",
       "Team Collaboration",
@@ -89,7 +86,7 @@
   "summary": "Results-driven Economics graduate with experience in efficiently processing agricultural loans and analyzing financial reports. Adept at fostering strong client relationships and optimizing loan performance while mitigating risks. Seeking to leverage skills for impactful contributions in the financial industry.",
   "certifications": [
     {
-      "name": "1st National Youth Conference",
+      "name": "1st National Youth Conference AUST",
       "issuer": "AUST",
       "date": "2018-02"
     },
@@ -108,7 +105,7 @@
     "French"
   ],
   "awards": [
-    "Member of Creative Bachelor Society",
-    "Organized Spring Gala and Bizz Buzz events under Creative Bachelors"
+    "Member of Creative Bachelor Society in February 2018",
+    "Organized Spring Gala and Bizz Buzz events under Creative Bachelors in June 2019"
   ]
 }

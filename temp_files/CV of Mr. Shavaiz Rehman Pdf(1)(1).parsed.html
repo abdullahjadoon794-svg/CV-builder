@@ -17,13 +17,11 @@
     <title>SHAVEZ REHMAN</title>
     <style>
         :root {
-            --primary-color: #3a4d6d; /* Dark Slate Blue */
+            --primary-color: #2c3e50; /* Dark Slate Blue */
             --secondary-color: #ffffff;
             --text-color-dark: #333333;
-            --text-color-light: #f0f0f0;
+            --text-color-light: #fdfdfd;
             --page-bg-color: #e8e8e8;
-            --skill-tag-bg: #e1e6ec;
-            --skill-tag-text: #3a4d6d;
         }
 
         @media print {
@@ -65,7 +63,6 @@
             padding: 20px 0;
             font-size: 14px;
             color: var(--text-color-dark);
-            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
@@ -85,8 +82,8 @@
         .sidebar {
             background-color: var(--primary-color);
             color: var(--text-color-light);
-            width: 38%;
-            padding: 40px;
+            width: 33%;
+            padding: 30px;
             box-sizing: border-box;
         }
 
@@ -96,98 +93,67 @@
         }
 
         .profile-image {
-            width: 180px;
-            height: 180px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
-            border: 6px solid #5c6e8d;
+            border: 6px solid var(--secondary-color);
             object-fit: cover;
             background-color: #ccc;
         }
 
         .sidebar-section {
-            margin-bottom: 30px;
-        }
-        .sidebar-section:last-child {
-            margin-bottom: 0;
+            margin-bottom: 35px;
         }
 
         .sidebar-title {
-            font-size: 1.2em;
+            font-size: 1.1em;
             font-weight: bold;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin: 0 0 15px 0;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #5c6e8d;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid var(--text-color-light);
         }
 
-        .contact-list {
+        .contact-list,
+        .skills-list,
+        .languages-list {
             list-style: none;
             padding: 0;
             margin: 0;
         }
-        .contact-item {
-            margin-bottom: 8px;
-        }
-        
-        .education-entry, .certification-entry {
-            margin-bottom: 20px;
-        }
-        .education-entry:last-child, .certification-entry:last-child {
-            margin-bottom: 0;
-        }
-        .education-entry .degree, .certification-entry .cert-title {
-            font-weight: bold;
-            font-size: 1.05em;
-        }
-        .education-entry .university-dates, .certification-entry .cert-details {
-            font-size: 0.9em;
-            opacity: 0.9;
-        }
 
-        .skills-list, .languages-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        .skill-item, .language-item {
-            background-color: var(--skill-tag-bg);
-            color: var(--skill-tag-text);
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-size: 0.9em;
-            font-weight: 500;
+        .contact-item,
+        .skill-item,
+        .language-item {
+            margin-bottom: 12px;
+            line-height: 1.5;
         }
 
         /* --- Main Content --- */
         .main-content {
-            width: 62%;
-            padding: 50px 40px;
+            width: 67%;
+            padding: 40px;
             box-sizing: border-box;
         }
+
         .resume-header {
             margin-bottom: 40px;
         }
+
         .resume-header .name {
-            font-size: 3.5em;
-            font-weight: 300;
-            letter-spacing: 4px;
+            font-size: 2.8em;
+            margin: 0 0 5px 0;
             color: var(--primary-color);
-            margin: 0;
-            line-height: 1;
-        }
-        .resume-header .name-last {
             font-weight: 700;
+            line-height: 1.1;
         }
+
         .resume-header .title {
-            font-size: 1.2em;
+            font-size: 1.5em;
+            margin: 0;
             color: var(--primary-color);
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            margin-top: 10px;
+            font-weight: 300;
         }
 
         .main-section {
@@ -199,59 +165,87 @@
 
         .main-section-title {
             font-size: 1.5em;
+            font-weight: bold;
             color: var(--primary-color);
             text-transform: uppercase;
-            font-weight: bold;
-            letter-spacing: 3px;
+            letter-spacing: 1.5px;
             margin: 0 0 20px 0;
             padding-bottom: 10px;
             border-bottom: 2px solid var(--primary-color);
         }
 
-        .job-entry {
+        .profile-section p {
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .job-entry, .education-entry, .reference-entry, .project-entry, .certification-entry {
             margin-bottom: 25px;
         }
-        .job-entry:last-child {
+
+        .job-entry:last-child, .education-entry:last-child, .project-entry:last-child, .certification-entry:last-child {
             margin-bottom: 0;
         }
 
-        .job-title-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 5px;
-        }
-        .job-title-wrapper .job-title {
+        .job-entry h4, .education-entry h4, .project-entry h4, .certification-entry h4 {
+            margin: 0 0 2px 0;
             font-size: 1.2em;
             font-weight: bold;
-            margin: 0;
         }
-        .job-title-wrapper .job-dates {
-            font-size: 0.9em;
-            font-style: italic;
-            color: #666;
-            white-space: nowrap;
-        }
-        .job-company {
-            font-size: 1.05em;
-            font-weight: bold;
+
+        .job-entry .job-subtitle {
             margin: 0 0 8px 0;
-            color: #555;
-        }
-        .job-description, .about-me-text {
-            margin: 0;
+            font-style: italic;
+            color: #555555;
         }
         
-        .reference-entry {
-            margin-bottom: 15px;
+        .job-entry .job-period {
+            font-weight: bold;
+            color: #777777;
+            font-size: 0.9em;
+            margin-bottom: 10px;
         }
-        .reference-entry:last-child {
-            margin-bottom: 0;
-        }
-        .reference-entry p {
+
+        .job-entry ul, .project-entry ul {
+            padding-left: 20px;
             margin: 0;
         }
-        .reference-name {
+
+        .job-entry ul li, .project-entry ul li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        
+        .education-entry {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .education-details {
+            flex-grow: 1;
+        }
+        .education-details p {
+            margin: 0;
+            color: #555555;
+            line-height: 1.5;
+        }
+        
+        .education-period {
+            font-weight: bold;
+            color: #777777;
+            font-size: 0.9em;
+            text-align: right;
+            white-space: nowrap;
+            padding-left: 20px;
+            line-height: 1.5;
+        }
+
+        .reference-entry p {
+            margin: 0 0 5px 0;
+            line-height: 1.5;
+        }
+        .reference-entry .reference-name {
             font-weight: bold;
         }
     </style>
@@ -292,16 +286,15 @@
                 
             
         </aside>
-
         <main class="main-content">
              
             <header class="resume-header">
                 <h1 class="name">SHAVEZ REHMAN</h1>
-                <p class="title">
+                <h2 class="title">
                     
                         AGRICULTURE CREDIT OFFICER
                     
-                </p>
+                </h2>
             </header>
              
             
@@ -333,7 +326,7 @@
              | Havelian
         </p>
         <p class="job-period">
-            2023 -
+            2023-08 -
             PRESENT
         </p>
         
@@ -404,6 +397,56 @@
             
             
                 
+            
+                
+                    
+
+<section class="sidebar-section skills-section">
+    <h3 class="sidebar-title">Skills</h3>
+    <ul class="skills-list">
+        <li class="skill-item">• Financial Analysis</li>
+        <li class="skill-item">• Relationship Management</li><li class="skill-item">• Risk Mitigation</li><li class="skill-item">• Communication</li><li class="skill-item">• Decision Making</li><li class="skill-item">• Team Collaboration</li><li class="skill-item">• Problem Solving</li>
+        
+        
+    </ul>
+</section>
+
+
+                
+            
+                
+            
+                
+                    
+
+<section class="sidebar-section languages-section">
+    <h3 class="sidebar-title">Languages</h3>
+    <ul class="languages-list">
+        
+        <li class="language-item">• English</li>
+        
+        <li class="language-item">• Urdu</li>
+        
+        <li class="language-item">• Punjabi</li>
+        
+        <li class="language-item">• Hindko</li>
+        
+        <li class="language-item">• French</li>
+        
+    </ul>
+</section>
+
+
+                
+            
+                
+            
+        </aside>
+        <main class="main-content">
+             
+            
+            
+                
                     
 
 <section class="main-section education-section">
@@ -439,7 +482,7 @@
     <article class="education-entry">
         <div class="education-details">
             <h4>Matriculation</h4>
-            <p>Pakistan International Public and School</p>
+            <p>Pakistan International Public School</p>
             
             
         </div>
@@ -455,20 +498,6 @@
                 
             
                 
-                    
-
-<section class="sidebar-section skills-section">
-    <h3 class="sidebar-title">Skills</h3>
-    <ul class="skills-list">
-        <li class="skill-item">• Financial Analysis</li><li class="skill-item">• Risk Mitigation</li>
-        <li class="skill-item">• Relationship Management</li><li class="skill-item">• Communication</li><li class="skill-item">• Decision Making</li><li class="skill-item">• Team Collaboration</li><li class="skill-item">• Problem Solving</li>
-        
-        
-    </ul>
-</section>
-
-
-                
             
                 
                     
@@ -477,7 +506,7 @@
     <h2 class="main-section-title">Certifications</h2>
     
     <article class="certification-entry">
-        <h4>1st National Youth Conference</h4>
+        <h4>1st National Youth Conference AUST</h4>
         <p>
             AUST |
             2018-02
@@ -498,43 +527,6 @@
                 
             
                 
-                    
-
-<section class="sidebar-section languages-section">
-    <h3 class="sidebar-title">Languages</h3>
-    <ul class="languages-list">
-        
-        <li class="language-item">• English</li>
-        
-        <li class="language-item">• Urdu</li>
-        
-        <li class="language-item">• Punjabi</li>
-        
-        <li class="language-item">• Hindko</li>
-        
-        <li class="language-item">• French</li>
-        
-    </ul>
-</section>
-
-
-                
-            
-                
-            
-        </aside>
-
-        <main class="main-content">
-             
-            
-            
-                
-            
-                
-            
-                
-            
-                
             
                 
                     
@@ -543,9 +535,9 @@
     <h2 class="main-section-title">Awards</h2>
     <ul>
         
-        <li>Member of Creative Bachelor Society</li>
+        <li>Member of Creative Bachelor Society in February 2018</li>
         
-        <li>Organized Spring Gala and Bizz Buzz events under Creative Bachelors</li>
+        <li>Organized Spring Gala and Bizz Buzz events under Creative Bachelors in June 2019</li>
         
     </ul>
 </section>

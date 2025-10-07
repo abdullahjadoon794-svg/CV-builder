@@ -151,6 +151,7 @@ RESUME_SCHEMA: Dict[str, Any] = {
         "education",
         "skills",
         "projects",
+        
     ],
 }
 
@@ -182,7 +183,7 @@ SEGMENTATION_SCHEMA: Dict[str, Any] = {
 def segment_resume_text(text: str) -> Dict[str, str]:
     """Extract sections from resume text using Gemini API with segmentation schema."""
     client = genai.Client(api_key=api_key)
-    model_name = "gemini-1.5-flash"#gemini-1.5-flash,gemini-2.5-flash
+    model_name = "gemini-2.5-flash-lite"#gemini-2.5-flash-lite,gemini-2.5-flash
     
     config = types.GenerateContentConfig(
         temperature=0.0,
@@ -198,7 +199,11 @@ def segment_resume_text(text: str) -> Dict[str, str]:
     prompt = f"Segment the following resume text into sections:\n\n{text}"
     
     try:
-        resp = client.models.generate_content(model=model_name, contents=prompt, config=config)
+        resp = client.models.generate_content(
+    model=model_name,
+    contents=[{"role": "user", "parts": [{"text": prompt}]}],
+    config=config
+)
         raw_text = resp.text.strip()
         clean_json_text = re.sub(r"^```json\s*|\s*```$", "", raw_text)
         segments = json.loads(clean_json_text)
@@ -215,7 +220,7 @@ def parse_work_experience_chunk(chunk: str) -> List[Dict[str, Any]]:
         return []
     
     client = genai.Client(api_key=api_key)
-    model_name = "gemini-1.5-flash"
+    model_name = "gemini-2.5-flash-lite"
     
     work_exp_schema = {
         "type": "ARRAY",
@@ -232,7 +237,11 @@ def parse_work_experience_chunk(chunk: str) -> List[Dict[str, Any]]:
     prompt = f"Parse work experience from:\n\n{chunk}"
     
     try:
-        resp = client.models.generate_content(model=model_name, contents=prompt, config=config)
+        resp = client.models.generate_content(
+    model=model_name,
+    contents=[{"role": "user", "parts": [{"text": prompt}]}],
+    config=config
+)
         raw_text = resp.text.strip()
         clean_json_text = re.sub(r"^```json\s*|\s*```$", "", raw_text)
         return json.loads(clean_json_text)
@@ -246,7 +255,7 @@ def parse_education_chunk(chunk: str) -> List[Dict[str, Any]]:
         return []
     
     client = genai.Client(api_key=api_key)
-    model_name = "gemini-1.5-flash"
+    model_name = "gemini-2.5-flash-lite"
     
     education_schema = {
         "type": "ARRAY",
@@ -263,7 +272,11 @@ def parse_education_chunk(chunk: str) -> List[Dict[str, Any]]:
     prompt = f"Parse education from:\n\n{chunk}"
     
     try:
-        resp = client.models.generate_content(model=model_name, contents=prompt, config=config)
+        resp = client.models.generate_content(
+    model=model_name,
+    contents=[{"role": "user", "parts": [{"text": prompt}]}],
+    config=config
+)
         raw_text = resp.text.strip()
         clean_json_text = re.sub(r"^```json\s*|\s*```$", "", raw_text)
         return json.loads(clean_json_text)
@@ -277,7 +290,7 @@ def parse_skills_chunk(chunk: str) -> Dict[str, Any]:
         return {"clinical": [], "technical": [], "soft": [], "tools": []}
     
     client = genai.Client(api_key=api_key)
-    model_name = "gemini-1.5-flash"
+    model_name = "gemini-2.5-flash-lite"
     
     skills_schema = RESUME_SCHEMA["properties"]["skills"]
     
@@ -291,7 +304,11 @@ def parse_skills_chunk(chunk: str) -> Dict[str, Any]:
     prompt = f"Parse skills from:\n\n{chunk}"
     
     try:
-        resp = client.models.generate_content(model=model_name, contents=prompt, config=config)
+        resp = client.models.generate_content(
+    model=model_name,
+    contents=[{"role": "user", "parts": [{"text": prompt}]}],
+    config=config
+)
         raw_text = resp.text.strip()
         clean_json_text = re.sub(r"^```json\s*|\s*```$", "", raw_text)
         return json.loads(clean_json_text)
@@ -305,7 +322,7 @@ def parse_contact_info_chunk(chunk: str) -> Dict[str, Any]:
         return {}
     
     client = genai.Client(api_key=api_key)
-    model_name = "gemini-1.5-flash"
+    model_name = "gemini-2.5-flash-lite"
     
     contact_schema = RESUME_SCHEMA["properties"]["contact_info"]
     
@@ -319,7 +336,11 @@ def parse_contact_info_chunk(chunk: str) -> Dict[str, Any]:
     prompt = f"Parse contact information from:\n\n{chunk}"
     
     try:
-        resp = client.models.generate_content(model=model_name, contents=prompt, config=config)
+        resp = client.models.generate_content(
+    model=model_name,
+    contents=[{"role": "user", "parts": [{"text": prompt}]}],
+    config=config
+)
         raw_text = resp.text.strip()
         clean_json_text = re.sub(r"^```json\s*|\s*```$", "", raw_text)
         return json.loads(clean_json_text)
@@ -333,7 +354,7 @@ def parse_summary_chunk(chunk: str) -> str:
         return ""
     
     client = genai.Client(api_key=api_key)
-    model_name = "gemini-1.5-flash"
+    model_name = "gemini-2.5-flash-lite"
     
     config = types.GenerateContentConfig(
         temperature=0.0,
@@ -348,7 +369,11 @@ def parse_summary_chunk(chunk: str) -> str:
     prompt = f"Extract the professional summary from this text:\n\n{chunk}"
     
     try:
-        resp = client.models.generate_content(model=model_name, contents=prompt, config=config)
+        resp = client.models.generate_content(
+    model=model_name,
+    contents=[{"role": "user", "parts": [{"text": prompt}]}],
+    config=config
+)
         return resp.text.strip()
     except Exception as e:
         print(f"❌ Summary parsing failed: {e}")
@@ -360,7 +385,7 @@ def parse_certifications_chunk(chunk: str) -> List[Dict[str, Any]]:
         return []
     
     client = genai.Client(api_key=api_key)
-    model_name = "gemini-1.5-flash"
+    model_name = "gemini-2.5-flash-lite"
     
     cert_schema = {
         "type": "ARRAY",
@@ -377,7 +402,11 @@ def parse_certifications_chunk(chunk: str) -> List[Dict[str, Any]]:
     prompt = f"Parse certifications from:\n\n{chunk}"
     
     try:
-        resp = client.models.generate_content(model=model_name, contents=prompt, config=config)
+        resp = client.models.generate_content(
+    model=model_name,
+    contents=[{"role": "user", "parts": [{"text": prompt}]}],
+    config=config
+)
         raw_text = resp.text.strip()
         clean_json_text = re.sub(r"^```json\s*|\s*```$", "", raw_text)
         return json.loads(clean_json_text)
@@ -391,7 +420,7 @@ def parse_projects_chunk(chunk: str) -> List[Dict[str, Any]]:
         return []
     
     client = genai.Client(api_key=api_key)
-    model_name = "gemini-1.5-flash"
+    model_name = "gemini-2.5-flash-lite"
     
     projects_schema = {
         "type": "ARRAY",
@@ -408,7 +437,11 @@ def parse_projects_chunk(chunk: str) -> List[Dict[str, Any]]:
     prompt = f"Parse projects from:\n\n{chunk}"
     
     try:
-        resp = client.models.generate_content(model=model_name, contents=prompt, config=config)
+        resp = client.models.generate_content(
+    model=model_name,
+    contents=[{"role": "user", "parts": [{"text": prompt}]}],
+    config=config
+)
         raw_text = resp.text.strip()
         clean_json_text = re.sub(r"^```json\s*|\s*```$", "", raw_text)
         return json.loads(clean_json_text)
@@ -422,7 +455,7 @@ def parse_languages_chunk(chunk: str) -> List[str]:
         return []
     
     client = genai.Client(api_key=api_key)
-    model_name = "gemini-1.5-flash"
+    model_name = "gemini-2.5-flash-lite"
     
     config = types.GenerateContentConfig(
         temperature=0.0,
@@ -434,7 +467,11 @@ def parse_languages_chunk(chunk: str) -> List[str]:
     prompt = f"Parse languages from:\n\n{chunk}"
     
     try:
-        resp = client.models.generate_content(model=model_name, contents=prompt, config=config)
+        resp = client.models.generate_content(
+    model=model_name,
+    contents=[{"role": "user", "parts": [{"text": prompt}]}],
+    config=config
+)
         raw_text = resp.text.strip()
         clean_json_text = re.sub(r"^```json\s*|\s*```$", "", raw_text)
         return json.loads(clean_json_text)
@@ -448,7 +485,7 @@ def parse_awards_chunk(chunk: str) -> List[str]:
         return []
     
     client = genai.Client(api_key=api_key)
-    model_name = "gemini-1.5-flash"
+    model_name = "gemini-2.5-flash-lite"
     
     config = types.GenerateContentConfig(
         temperature=0.0,
@@ -460,7 +497,11 @@ def parse_awards_chunk(chunk: str) -> List[str]:
     prompt = f"Parse awards from:\n\n{chunk}"
     
     try:
-        resp = client.models.generate_content(model=model_name, contents=prompt, config=config)
+        resp = client.models.generate_content(
+    model=model_name,
+    contents=[{"role": "user", "parts": [{"text": prompt}]}],
+    config=config
+)
         raw_text = resp.text.strip()
         clean_json_text = re.sub(r"^```json\s*|\s*```$", "", raw_text)
         return json.loads(clean_json_text)
